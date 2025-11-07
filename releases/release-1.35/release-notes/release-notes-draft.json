@@ -46,8 +46,8 @@
   },
   "123642": {
     "commit": "b4d4cc93840fa30a305b013acd1b1060ed3f8ee2",
-    "text": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate is enabled:\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`.",
-    "markdown": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate is enabled:\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`. ([#123642](https://github.com/kubernetes/kubernetes/pull/123642), [@aramase](https://github.com/aramase)) [SIG API Machinery, Auth and Testing]",
+    "text": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate has now been enabled:\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`.",
+    "markdown": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate has now been enabled:\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`. ([#123642](https://github.com/kubernetes/kubernetes/pull/123642), [@aramase](https://github.com/aramase)) [SIG API Machinery, Auth and Testing]",
     "documentation": [
       {
         "description": "[KEP]",
@@ -2303,8 +2303,8 @@
   },
   "134263": {
     "commit": "da2eea1bf2816e2215e9978e7817d5d150228551",
-    "text": "The namespace is now included in the `--dry-run=client` output for `HorizontalPodAutoscaler (HPA)` objects.",
-    "markdown": "The namespace is now included in the `--dry-run=client` output for `HorizontalPodAutoscaler (HPA)` objects. ([#134263](https://github.com/kubernetes/kubernetes/pull/134263), [@ardaguclu](https://github.com/ardaguclu)) [SIG CLI and Testing]",
+    "text": "Namespace is now included in the `--dry-run=client` output for `HorizontalPodAutoscaler (HPA)` objects.",
+    "markdown": "Namespace is now included in the `--dry-run=client` output for `HorizontalPodAutoscaler (HPA)` objects. ([#134263](https://github.com/kubernetes/kubernetes/pull/134263), [@ardaguclu](https://github.com/ardaguclu)) [SIG CLI and Testing]",
     "author": "ardaguclu",
     "author_url": "https://github.com/ardaguclu",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134263",
@@ -2713,8 +2713,8 @@
   },
   "134452": {
     "commit": "d5efbf2ebf9725ab2bada9136c6958268b31dc4f",
-    "text": "DRA: The `DynamicResourceAllocation` feature gate for the core functionality (GA in `v1.34`) was locked to enabled by default and cannot be disabled.",
-    "markdown": "DRA: The `DynamicResourceAllocation` feature gate for the core functionality (GA in `v1.34`) was locked to enabled by default and cannot be disabled. ([#134452](https://github.com/kubernetes/kubernetes/pull/134452), [@pohly](https://github.com/pohly)) [SIG Auth, Node, Scheduling and Testing]",
+    "text": "DRA: The `DynamicResourceAllocation` feature gate for the core functionality (GA in `v1.34`) has now been locked to enabled-by-default and cannot be disabled anymore.",
+    "markdown": "DRA: The `DynamicResourceAllocation` feature gate for the core functionality (GA in `v1.34`) has now been locked to enabled-by-default and cannot be disabled anymore. ([#134452](https://github.com/kubernetes/kubernetes/pull/134452), [@pohly](https://github.com/pohly)) [SIG Auth, Node, Scheduling and Testing]",
     "author": "pohly",
     "author_url": "https://github.com/pohly",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134452",
@@ -3065,8 +3065,8 @@
   },
   "134624": {
     "commit": "a058cf788a214b25c42173a6d7df8e77b26e2b1b",
-    "text": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set `false` by default. To use the feature, user must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API.",
-    "markdown": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set `false` by default. To use the feature, user must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API. ([#134624](https://github.com/kubernetes/kubernetes/pull/134624), [@yt2985](https://github.com/yt2985)) [SIG API Machinery, Apps, Auth, Etcd, Instrumentation, Node and Testing]",
+    "text": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, user must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API.",
+    "markdown": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, user must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API. ([#134624](https://github.com/kubernetes/kubernetes/pull/134624), [@yt2985](https://github.com/yt2985)) [SIG API Machinery, Apps, Auth, Etcd, Instrumentation, Node and Testing]",
     "author": "yt2985",
     "author_url": "https://github.com/yt2985",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134624",
@@ -3253,8 +3253,8 @@
   },
   "134691": {
     "commit": "59616d50fd67877f158ebf5bcc7a12aff9fe3a92",
-    "text": "The `SystemdWatchdog` feature gate is locked to default and will be removed in future release. The systemd watchdog functionality in `kubelet` can be enabled via systemd without any feature gate configuration. See the [systemd watchdog documentation](https://kubernetes.io/docs/reference/node/systemd-watchdog/) for more information.",
-    "markdown": "The `SystemdWatchdog` feature gate is locked to default and will be removed in future release. The systemd watchdog functionality in `kubelet` can be enabled via systemd without any feature gate configuration. See the [systemd watchdog documentation](https://kubernetes.io/docs/reference/node/systemd-watchdog/) for more information. ([#134691](https://github.com/kubernetes/kubernetes/pull/134691), [@SergeyKanzhelev](https://github.com/SergeyKanzhelev))",
+    "text": "The `SystemdWatchdog` feature gate has been locked to default and will be removed in future release. The systemd watchdog functionality in `kubelet` can be enabled via systemd without any feature gate configuration. See the [systemd watchdog documentation](https://kubernetes.io/docs/reference/node/systemd-watchdog/) for more information.",
+    "markdown": "The `SystemdWatchdog` feature gate has been locked to default and will be removed in future release. The systemd watchdog functionality in `kubelet` can be enabled via systemd without any feature gate configuration. See the [systemd watchdog documentation](https://kubernetes.io/docs/reference/node/systemd-watchdog/) for more information. ([#134691](https://github.com/kubernetes/kubernetes/pull/134691), [@SergeyKanzhelev](https://github.com/SergeyKanzhelev))",
     "author": "SergeyKanzhelev",
     "author_url": "https://github.com/SergeyKanzhelev",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134691",
@@ -3463,8 +3463,8 @@
   },
   "134746": {
     "commit": "0452b0aec7c0def662cb43c8ddaeb0df521c71b8",
-    "text": "Added the `ChangeContainerStatusOnKubeletRestart` feature gate, which defaults to disabled. When the feature gate is disabled, `kubelet` does not change the Pod status upon restart, and Pods do not re-run startup probes after `kubelet` restart.",
-    "markdown": "Added the `ChangeContainerStatusOnKubeletRestart` feature gate, which defaults to disabled. When the feature gate is disabled, `kubelet` does not change the Pod status upon restart, and Pods do not re-run startup probes after `kubelet` restart. ([#134746](https://github.com/kubernetes/kubernetes/pull/134746), [@HirazawaUi](https://github.com/HirazawaUi)) [SIG Node and Testing]",
+    "text": "Added the `ChangeContainerStatusOnKubeletRestart` feature gate, which defaults to disabled. When the feature gate is disabled, `kubelet` does not change the Pod status upon restart, and Pods do not re-run startup probes after the `kubelet` restarts.",
+    "markdown": "Added the `ChangeContainerStatusOnKubeletRestart` feature gate, which defaults to disabled. When the feature gate is disabled, `kubelet` does not change the Pod status upon restart, and Pods do not re-run startup probes after the `kubelet` restarts. ([#134746](https://github.com/kubernetes/kubernetes/pull/134746), [@HirazawaUi](https://github.com/HirazawaUi)) [SIG Node and Testing]",
     "documentation": [
       {
         "description": "[KEP]",
@@ -3515,8 +3515,8 @@
   },
   "134769": {
     "commit": "276c59af7c4c78153248a816f5fa04f499323028",
-    "text": "Fixed a bug where Job status updates failed after resuming a Job that was previously started and suspended.\nThe error message was: `status.startTime: Required value: startTime cannot be removed for unsuspended job`.",
-    "markdown": "Fixed a bug where Job status updates failed after resuming a Job that was previously started and suspended.\n  The error message was: `status.startTime: Required value: startTime cannot be removed for unsuspended job`. ([#134769](https://github.com/kubernetes/kubernetes/pull/134769), [@dejanzele](https://github.com/dejanzele)) [SIG Apps and Testing]",
+    "text": "Fixed a bug where Job status updates fail after resuming a Job that was previously started and suspended.\nThe error message was: `status.startTime: Required value: startTime cannot be removed for unsuspended job`.",
+    "markdown": "Fixed a bug where Job status updates fail after resuming a Job that was previously started and suspended.\n  The error message was: `status.startTime: Required value: startTime cannot be removed for unsuspended job`. ([#134769](https://github.com/kubernetes/kubernetes/pull/134769), [@dejanzele](https://github.com/dejanzele)) [SIG Apps and Testing]",
     "author": "dejanzele",
     "author_url": "https://github.com/dejanzele",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134769",
@@ -3915,8 +3915,8 @@
   },
   "134948": {
     "commit": "a490c43f0ec6bf9fa4fa19a5b9a5a9937716d87a",
-    "text": "Promoted `PodObservedGenerationTracking` to general availability.",
-    "markdown": "Promoted `PodObservedGenerationTracking` to general availability. ([#134948](https://github.com/kubernetes/kubernetes/pull/134948), [@natasha41575](https://github.com/natasha41575)) [SIG API Machinery, Apps, Node, Scheduling and Testing]",
+    "text": "Promoted `PodObservedGenerationTracking` to GA.",
+    "markdown": "Promoted `PodObservedGenerationTracking` to GA. ([#134948](https://github.com/kubernetes/kubernetes/pull/134948), [@natasha41575](https://github.com/natasha41575)) [SIG API Machinery, Apps, Node, Scheduling and Testing]",
     "author": "natasha41575",
     "author_url": "https://github.com/natasha41575",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134948",
@@ -3941,8 +3941,8 @@
   },
   "134949": {
     "commit": "a13ad97048f4da8e4ce2f22dcd6e02a4173ecf9e",
-    "text": "Promoted `InPlacePodVerticalScaling` to general availability.",
-    "markdown": "Promoted `InPlacePodVerticalScaling` to general availability. ([#134949](https://github.com/kubernetes/kubernetes/pull/134949), [@natasha41575](https://github.com/natasha41575)) [SIG API Machinery, Node and Scheduling]",
+    "text": "Promoted `InPlacePodVerticalScaling` to GA.",
+    "markdown": "Promoted `InPlacePodVerticalScaling` to GA. ([#134949](https://github.com/kubernetes/kubernetes/pull/134949), [@natasha41575](https://github.com/natasha41575)) [SIG API Machinery, Node and Scheduling]",
     "author": "natasha41575",
     "author_url": "https://github.com/natasha41575",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134949",
