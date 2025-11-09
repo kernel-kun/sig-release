@@ -1,7 +1,7 @@
 pr: 134744
 releasenote:
   text: |-
-    ACTION REQUIRED
+    ACTION REQUIRED:
 
     vendor: Updated `k8s.io/system-validators` to `v1.12.1`. The cgroups validator now throws an error instead of a warning if cgroups v1 is detected on the host and the provided KubeletVersion is `v1.35` or newer.
 
