@@ -46,8 +46,8 @@
   },
   "123642": {
     "commit": "b4d4cc93840fa30a305b013acd1b1060ed3f8ee2",
-    "text": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate has now been enabled:\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`.",
-    "markdown": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate has now been enabled:\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`. ([#123642](https://github.com/kubernetes/kubernetes/pull/123642), [@aramase](https://github.com/aramase)) [SIG API Machinery, Auth and Testing]",
+    "text": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate is enabled:\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n- `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`.",
+    "markdown": "The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate is enabled:\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`\n  - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`. ([#123642](https://github.com/kubernetes/kubernetes/pull/123642), [@aramase](https://github.com/aramase)) [SIG API Machinery, Auth and Testing]",
     "documentation": [
       {
         "description": "[KEP]",
@@ -1043,8 +1043,8 @@
   },
   "133511": {
     "commit": "60e1f61a6361e782c738ee941d61fddc1ab3d2f2",
-    "text": "Eliminated and prevented future use of `md5` in favor of more appropriate hashing algorithms.",
-    "markdown": "Eliminated and prevented future use of `md5` in favor of more appropriate hashing algorithms. ([#133511](https://github.com/kubernetes/kubernetes/pull/133511), [@BenTheElder](https://github.com/BenTheElder)) [SIG Apps, Architecture, CLI, Cluster Lifecycle, Network, Node, Security, Storage and Testing]",
+    "text": "Eliminated and prevented future use of the `md5` algorithm in favor of more appropriate hashing algorithms.",
+    "markdown": "Eliminated and prevented future use of the `md5` algorithm in favor of more appropriate hashing algorithms. ([#133511](https://github.com/kubernetes/kubernetes/pull/133511), [@BenTheElder](https://github.com/BenTheElder)) [SIG Apps, Architecture, CLI, Cluster Lifecycle, Network, Node, Security, Storage and Testing]",
     "author": "BenTheElder",
     "author_url": "https://github.com/BenTheElder",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/133511",
@@ -3065,8 +3065,8 @@
   },
   "134624": {
     "commit": "a058cf788a214b25c42173a6d7df8e77b26e2b1b",
-    "text": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, user must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API.",
-    "markdown": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, user must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API. ([#134624](https://github.com/kubernetes/kubernetes/pull/134624), [@yt2985](https://github.com/yt2985)) [SIG API Machinery, Apps, Auth, Etcd, Instrumentation, Node and Testing]",
+    "text": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, users must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API.",
+    "markdown": "The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, users must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API. ([#134624](https://github.com/kubernetes/kubernetes/pull/134624), [@yt2985](https://github.com/yt2985)) [SIG API Machinery, Apps, Auth, Etcd, Instrumentation, Node and Testing]",
     "author": "yt2985",
     "author_url": "https://github.com/yt2985",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/134624",
@@ -3432,8 +3432,8 @@
   },
   "134744": {
     "commit": "ec5425a6ef45b0df37c66171913edaf0f443567e",
-    "text": "ACTION REQUIRED\n\nvendor: Updated `k8s.io/system-validators` to `v1.12.1`. The cgroups validator now throws an error instead of a warning if cgroups v1 is detected on the host and the provided KubeletVersion is `v1.35` or newer.\n\nkubeadm: Started using `k8s.io/system-validators` `v1.12.1` in `kubeadm` `v1.35`. During `kubeadm init`, `kubeadm join`, and `kubeadm upgrade`, the SystemVerification preflight check throws an error if cgroups v1 is detected and the detected `kubelet` version is `v1.35` or newer. For older versions of `kubelet`, a preflight warning is displayed.\n\nTo allow cgroups v1 with `kubeadm` and `kubelet` version `v1.35` or newer, you must:\n- Ignore the error from the SystemVerification preflight check by `kubeadm`.\n- Edit the `kube-system/kubelet-config` ConfigMap and add the `failCgroupV1: false` field before upgrading.",
-    "markdown": "ACTION REQUIRED\n  \n  vendor: Updated `k8s.io/system-validators` to `v1.12.1`. The cgroups validator now throws an error instead of a warning if cgroups v1 is detected on the host and the provided KubeletVersion is `v1.35` or newer.\n  \n  kubeadm: Started using `k8s.io/system-validators` `v1.12.1` in `kubeadm` `v1.35`. During `kubeadm init`, `kubeadm join`, and `kubeadm upgrade`, the SystemVerification preflight check throws an error if cgroups v1 is detected and the detected `kubelet` version is `v1.35` or newer. For older versions of `kubelet`, a preflight warning is displayed.\n  \n  To allow cgroups v1 with `kubeadm` and `kubelet` version `v1.35` or newer, you must:\n  - Ignore the error from the SystemVerification preflight check by `kubeadm`.\n  - Edit the `kube-system/kubelet-config` ConfigMap and add the `failCgroupV1: false` field before upgrading. ([#134744](https://github.com/kubernetes/kubernetes/pull/134744), [@neolit123](https://github.com/neolit123)) [SIG Cluster Lifecycle and Node]",
+    "text": "ACTION REQUIRED:\n\nvendor: Updated `k8s.io/system-validators` to `v1.12.1`. The cgroups validator now throws an error instead of a warning if cgroups v1 is detected on the host and the provided KubeletVersion is `v1.35` or newer.\n\nkubeadm: Started using `k8s.io/system-validators` `v1.12.1` in `kubeadm` `v1.35`. During `kubeadm init`, `kubeadm join`, and `kubeadm upgrade`, the SystemVerification preflight check throws an error if cgroups v1 is detected and the detected `kubelet` version is `v1.35` or newer. For older versions of `kubelet`, a preflight warning is displayed.\n\nTo allow cgroups v1 with `kubeadm` and `kubelet` version `v1.35` or newer, you must:\n- Ignore the error from the SystemVerification preflight check by `kubeadm`.\n- Edit the `kube-system/kubelet-config` ConfigMap and add the `failCgroupV1: false` field before upgrading.",
+    "markdown": "ACTION REQUIRED:\n  \n  vendor: Updated `k8s.io/system-validators` to `v1.12.1`. The cgroups validator now throws an error instead of a warning if cgroups v1 is detected on the host and the provided KubeletVersion is `v1.35` or newer.\n  \n  kubeadm: Started using `k8s.io/system-validators` `v1.12.1` in `kubeadm` `v1.35`. During `kubeadm init`, `kubeadm join`, and `kubeadm upgrade`, the SystemVerification preflight check throws an error if cgroups v1 is detected and the detected `kubelet` version is `v1.35` or newer. For older versions of `kubelet`, a preflight warning is displayed.\n  \n  To allow cgroups v1 with `kubeadm` and `kubelet` version `v1.35` or newer, you must:\n  - Ignore the error from the SystemVerification preflight check by `kubeadm`.\n  - Edit the `kube-system/kubelet-config` ConfigMap and add the `failCgroupV1: false` field before upgrading. ([#134744](https://github.com/kubernetes/kubernetes/pull/134744), [@neolit123](https://github.com/neolit123)) [SIG Cluster Lifecycle and Node]",
     "documentation": [
       {
         "description": "[KEP]",
@@ -4203,8 +4203,8 @@
   },
   "135080": {
     "commit": "97cb47a91330db13d05e8674ce2a80ace19e4d99",
-    "text": "Promoted the `JobManagedBy` feature to general availability. The `JobManagedBy` feature gate was locked to `true` and will be removed in a future release of Kubernetes.",
-    "markdown": "Promoted the `JobManagedBy` feature to general availability. The `JobManagedBy` feature gate was locked to `true` and will be removed in a future release of Kubernetes. ([#135080](https://github.com/kubernetes/kubernetes/pull/135080), [@dejanzele](https://github.com/dejanzele)) [SIG API Machinery, Apps and Testing]",
+    "text": "Promoted the `JobManagedBy` feature to general availability. The `JobManagedBy` feature gate was locked to `true` and will be removed in a future Kubernetes release.",
+    "markdown": "Promoted the `JobManagedBy` feature to general availability. The `JobManagedBy` feature gate was locked to `true` and will be removed in a future Kubernetes release. ([#135080](https://github.com/kubernetes/kubernetes/pull/135080), [@dejanzele](https://github.com/dejanzele)) [SIG API Machinery, Apps and Testing]",
     "documentation": [
       {
         "description": "[KEP]",

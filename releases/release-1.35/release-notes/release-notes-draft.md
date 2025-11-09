@@ -2,7 +2,7 @@
 
 ### (No, really, you MUST read this before you upgrade)
 
-- ACTION REQUIRED
+- ACTION REQUIRED:
   
   vendor: Updated `k8s.io/system-validators` to `v1.12.1`. The cgroups validator now throws an error instead of a warning if cgroups v1 is detected on the host and the provided KubeletVersion is `v1.35` or newer.
   
@@ -49,12 +49,12 @@
 - Promoted HPA configurable tolerance to beta. The `HPAConfigurableTolerance` feature gate has now been enabled by default. ([#133128](https://github.com/kubernetes/kubernetes/pull/133128), [@jm-franc](https://github.com/jm-franc)) [SIG API Machinery and Autoscaling]
 - Promoted ReplicaSet and Deployment `.status.terminatingReplicas` tracking to beta. The `DeploymentReplicaSetTerminatingReplicas` feature gate is now enabled by default. ([#133087](https://github.com/kubernetes/kubernetes/pull/133087), [@atiratree](https://github.com/atiratree)) [SIG API Machinery, Apps and Testing]
 - Promoted `PodObservedGenerationTracking` to GA. ([#134948](https://github.com/kubernetes/kubernetes/pull/134948), [@natasha41575](https://github.com/natasha41575)) [SIG API Machinery, Apps, Node, Scheduling and Testing]
-- Promoted the `JobManagedBy` feature to general availability. The `JobManagedBy` feature gate was locked to `true` and will be removed in a future release of Kubernetes. ([#135080](https://github.com/kubernetes/kubernetes/pull/135080), [@dejanzele](https://github.com/dejanzele)) [SIG API Machinery, Apps and Testing]
+- Promoted the `JobManagedBy` feature to general availability. The `JobManagedBy` feature gate was locked to `true` and will be removed in a future Kubernetes release. ([#135080](https://github.com/kubernetes/kubernetes/pull/135080), [@dejanzele](https://github.com/dejanzele)) [SIG API Machinery, Apps and Testing]
 - Promoted the `MaxUnavailableStatefulSet` feature to beta and enabling it by default. ([#133153](https://github.com/kubernetes/kubernetes/pull/133153), [@helayoty](https://github.com/helayoty)) [SIG API Machinery and Apps]
 - Removed the `StrictCostEnforcementForVAP` and `StrictCostEnforcementForWebhooks` feature gates, which were locked since `v1.32`. ([#134994](https://github.com/kubernetes/kubernetes/pull/134994), [@liggitt](https://github.com/liggitt)) [SIG API Machinery, Auth, Node and Testing]
 - Scheduler: Added the `bindingTimeout` argument to the DynamicResources plugin configuration, allowing customization of the wait duration in `PreBind` for device binding conditions.
   Defaults to 10 minutes when `DRADeviceBindingConditions` and `DRAResourceClaimDeviceStatus` are both enabled. ([#134905](https://github.com/kubernetes/kubernetes/pull/134905), [@fj-naji](https://github.com/fj-naji)) [SIG Node and Scheduling]
-- The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, user must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API. ([#134624](https://github.com/kubernetes/kubernetes/pull/134624), [@yt2985](https://github.com/yt2985)) [SIG API Machinery, Apps, Auth, Etcd, Instrumentation, Node and Testing]
+- The Pod Certificates feature moved to beta. The `PodCertificateRequest` feature gate is set disabled by default. To use the feature, users must enable the certificates API groups in `v1beta1` and enable the `PodCertificateRequest` feature gate. The `UserAnnotations` field was added to the `PodCertificateProjection` API and the corresponding `UnverifiedUserAnnotations` field was added to the `PodCertificateRequest` API. ([#134624](https://github.com/kubernetes/kubernetes/pull/134624), [@yt2985](https://github.com/yt2985)) [SIG API Machinery, Apps, Auth, Etcd, Instrumentation, Node and Testing]
 - The `PreferSameZone` and `PreferSameNode` values for the Service
   `trafficDistribution` field graduated to general availability. The
   `PreferClose` value is now deprecated in favor of the more explicit
@@ -105,7 +105,7 @@
 - Promoted the `HostnameOverride` feature gate to beta and enabled it by default. ([#134729](https://github.com/kubernetes/kubernetes/pull/134729), [@HirazawaUi](https://github.com/HirazawaUi)) [SIG Network and Node]
 - Promoted the `RelaxedServiceNameValidation` feature to beta (enabled by default).
   New Service names are now validated with `NameIsDNSLabel()`, relaxing the pre-existing validation. ([#134493](https://github.com/kubernetes/kubernetes/pull/134493), [@adrianmoisey](https://github.com/adrianmoisey))
-- The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate has now been enabled:
+- The JWT authenticator in `kube-apiserver` now reports the following metrics when the `StructuredAuthenticationConfiguration` feature gate is enabled:
   - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_timestamp_seconds`
   - `apiserver_authentication_jwt_authenticator_jwks_fetch_last_key_set_info`. ([#123642](https://github.com/kubernetes/kubernetes/pull/123642), [@aramase](https://github.com/aramase)) [SIG API Machinery, Auth and Testing]
 - The scheduler now clears the `nominatedNodeName` field for Pods upon scheduling or binding failure. External components, such as Cluster Autoscaler and Karpenter, should not overwrite this field. ([#135007](https://github.com/kubernetes/kubernetes/pull/135007), [@ania-borowiec](https://github.com/ania-borowiec)) [SIG Scheduling and Testing]
@@ -197,7 +197,7 @@
 - Dropped support for `certificates/v1beta1` `CertificateSigningRequest` in `kubectl`. ([#134782](https://github.com/kubernetes/kubernetes/pull/134782), [@scaliby](https://github.com/scaliby))
 - Dropped support for `discovery/v1beta1` `EndpointSlice` in `kubectl`. ([#134913](https://github.com/kubernetes/kubernetes/pull/134913), [@scaliby](https://github.com/scaliby))
 - Dropped support for `policy/v1beta1` PodDisruptionBudget in kubectl. ([#134685](https://github.com/kubernetes/kubernetes/pull/134685), [@scaliby](https://github.com/scaliby))
-- Eliminated and prevented future use of `md5` in favor of more appropriate hashing algorithms. ([#133511](https://github.com/kubernetes/kubernetes/pull/133511), [@BenTheElder](https://github.com/BenTheElder)) [SIG Apps, Architecture, CLI, Cluster Lifecycle, Network, Node, Security, Storage and Testing]
+- Eliminated and prevented future use of the `md5` algorithm in favor of more appropriate hashing algorithms. ([#133511](https://github.com/kubernetes/kubernetes/pull/133511), [@BenTheElder](https://github.com/BenTheElder)) [SIG Apps, Architecture, CLI, Cluster Lifecycle, Network, Node, Security, Storage and Testing]
 - Fixed `nfacct` test cases on s390x. ([#133603](https://github.com/kubernetes/kubernetes/pull/133603), [@saisindhuri91](https://github.com/saisindhuri91))
 - Fixed formatting of various Go API deprecations for `GoDoc` and `pkgsite`, and enabled a linter to detect misformatted deprecations. ([#133571](https://github.com/kubernetes/kubernetes/pull/133571), [@BenTheElder](https://github.com/BenTheElder)) [SIG API Machinery, Architecture, CLI, Instrumentation and Testing]
 - Improved HPA performance when using container-specific resource metrics by optimizing container lookup logic to exit early once the target container is found, reducing unnecessary iterations through all containers in a pod. ([#133415](https://github.com/kubernetes/kubernetes/pull/133415), [@AadiDev005](https://github.com/AadiDev005)) [SIG Apps and Autoscaling]
