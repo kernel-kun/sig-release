@@ -1,4 +1,28 @@
 pr: 136292
 releasenote:
   text: Remove obsolete `// +build` instruction.
+  sigs:
+  - api-machinery
+  - apps
+  - auth
+  - cluster-lifecycle
+  - network
+  - node
+  - scalability
+  - scheduling
+  - storage
+  - testing
+  - windows
+  kinds:
+  - cleanup
+  - api-change
+  areas:
+  - test
+  - kubelet
+  - kube-proxy
+  - kubeadm
+  - code-generation
+  - ipvs
+  - e2e-test-framework
+  - dependency
 pr_body: ""
