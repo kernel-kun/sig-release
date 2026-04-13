@@ -4985,6 +4985,7 @@
       "network"
     ],
     "duplicate": true,
+    "do_not_publish": true,
     "pr_body": "## What this PR does / why we need it\n\nFixes kube-proxy crashes on systems with nftables 1.1.3+ due to segmentation faults when listing nftables sets with udata support.\n\n## Which issue this PR fixes (if applicable)\n\nFixes #136786\n\n## Special notes for reviewers\n\nThis fix addresses the crash without requiring patches to nftables itself, making kube-proxy robust across different nftables versions.\n\n## Checklist\n- [x] All tests pass\n- [x] No workarounds - proper solution using upstream updates\n- [x] Backward compatible with older nftables versions\n\n#### Does this PR introduce a user-facing change?\n```release-note\nFixes kube-proxy's nftables mode to work on systems with nft 1.1.3.\n```\n"
   },
   "136802": {
@@ -6441,6 +6442,7 @@
       "network"
     ],
     "duplicate_kind": true,
+    "do_not_publish": true,
     "pr_body": "#### What this PR does / why we need it:\r\nReverts #136796. We had discussed the fact that the change there was going to make `nft.List()` less efficient because there would be more JSON to parse, but apparently in the 5000 Node jobs, \"less efficient\" became \"basically broken\" (see discussion on `#sig-scalability`, https://kubernetes.slack.com/archives/C09QZTRH7/p1771436311523919).\r\n\r\nWe'll need a different fix...\r\nFYI @kairosci \r\n\r\n#### Does this PR introduce a user-facing change?\r\n```release-note\r\n(reverts #136796, so ignore the release note from there...)\r\n```\r\n\r\n/kind bug\r\n/kind failing-test\r\n\r\n/cc @serathius @aojea "
   },
   "137170": {
