@@ -4,3 +4,9 @@ releasenote:
   text: 'Kubeadm: the preflight check `ContainerRuntimeVersion` validates if the installed
     container runtime supports the `RuntimeConfig` gRPC method. For older kubelet
     versions than 1.37, it will return a preflight warning.'
+  sigs:
+  - cluster-lifecycle
+  kinds:
+  - feature
+  areas:
+  - kubeadm
