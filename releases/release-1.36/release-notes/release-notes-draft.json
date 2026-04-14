@@ -1150,8 +1150,8 @@
   },
   "135358": {
     "commit": "f22cda03cb0f898537e24853cbaa15f49196c22d",
-    "text": "Sorted runtime handlers list from the CRI runtime to prevent unnecessary Node object updates when the order changes.",
-    "markdown": "Sorted runtime handlers list from the CRI runtime to prevent unnecessary Node object updates when the order changes. ([#135358](https://github.com/kubernetes/kubernetes/pull/135358), [@harche](https://github.com/harche)) [SIG Node]",
+    "text": "Changed the runtime handlers list returned by the CRI runtime to be sorted, preventing unnecessary Node object updates when the order changes.",
+    "markdown": "Changed the runtime handlers list returned by the CRI runtime to be sorted, preventing unnecessary Node object updates when the order changes. ([#135358](https://github.com/kubernetes/kubernetes/pull/135358), [@harche](https://github.com/harche)) [SIG Node]",
     "author": "harche",
     "author_url": "https://github.com/harche",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/135358",
@@ -1256,8 +1256,8 @@
   },
   "135393": {
     "commit": "0ba578f91f5de11776152b55bac37491d9848ef3",
-    "text": "Added support for running PreBind plugins in parallel in the scheduler framework to improve binding latency.\nAction Required: Plugins can opt-in to parallel execution by returning `AllowParallel: true` from the `PreBindPreFlight` method. PreBind plugin implementations need to be updated to return `PreBindPreFlightResult` from the `PreBindPreFlight` method; returning nil retains the existing sequential behavior.",
-    "markdown": "Added support for running PreBind plugins in parallel in the scheduler framework to improve binding latency.\n  Action Required: Plugins can opt-in to parallel execution by returning `AllowParallel: true` from the `PreBindPreFlight` method. PreBind plugin implementations need to be updated to return `PreBindPreFlightResult` from the `PreBindPreFlight` method; returning nil retains the existing sequential behavior. ([#135393](https://github.com/kubernetes/kubernetes/pull/135393), [@tosi3k](https://github.com/tosi3k)) [SIG Node, Scheduling, Storage and Testing]",
+    "text": "Added support for running PreBind plugins in parallel in the scheduler framework to improve binding latency.\nACTION REQUIRED: Plugins can opt-in to parallel execution by returning `AllowParallel: true` from the `PreBindPreFlight` method. PreBind plugin implementations need to be updated to return `PreBindPreFlightResult` from the `PreBindPreFlight` method; returning nil retains the existing sequential behavior.",
+    "markdown": "Added support for running PreBind plugins in parallel in the scheduler framework to improve binding latency.\n  ACTION REQUIRED: Plugins can opt-in to parallel execution by returning `AllowParallel: true` from the `PreBindPreFlight` method. PreBind plugin implementations need to be updated to return `PreBindPreFlightResult` from the `PreBindPreFlight` method; returning nil retains the existing sequential behavior. ([#135393](https://github.com/kubernetes/kubernetes/pull/135393), [@tosi3k](https://github.com/tosi3k)) [SIG Node, Scheduling, Storage and Testing]",
     "author": "tosi3k",
     "author_url": "https://github.com/tosi3k",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/135393",
@@ -3547,8 +3547,8 @@
   },
   "136407": {
     "commit": "4b5db19cb7373a9f3bd98d3059e1adc6d68aa479",
-    "text": "Updated etcd client library to `v3.6.7`.",
-    "markdown": "Updated etcd client library to `v3.6.7`. ([#136407](https://github.com/kubernetes/kubernetes/pull/136407), [@ivanvc](https://github.com/ivanvc)) [SIG API Machinery, Auth, Cloud Provider, Node and Scheduling]",
+    "text": "Updated `etcd` client library to `v3.6.7`.",
+    "markdown": "Updated `etcd` client library to `v3.6.7`. ([#136407](https://github.com/kubernetes/kubernetes/pull/136407), [@ivanvc](https://github.com/ivanvc)) [SIG API Machinery, Auth, Cloud Provider, Node and Scheduling]",
     "author": "ivanvc",
     "author_url": "https://github.com/ivanvc",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/136407",
@@ -4926,8 +4926,8 @@
   },
   "136898": {
     "commit": "467099411df3aff8622645c2fcf932d30bfe8baf",
-    "text": "Kubeadm: the preflight check `ContainerRuntimeVersion` validates if the installed container runtime supports the `RuntimeConfig` gRPC method. For older kubelet versions than 1.37, it will return a preflight warning.",
-    "markdown": "Kubeadm: the preflight check `ContainerRuntimeVersion` validates if the installed container runtime supports the `RuntimeConfig` gRPC method. For older kubelet versions than 1.37, it will return a preflight warning. ([#136898](https://github.com/kubernetes/kubernetes/pull/136898), [@carlory](https://github.com/carlory)) [SIG Cluster Lifecycle]",
+    "text": "Kubeadm: The preflight check `ContainerRuntimeVersion` validates if the installed container runtime supports the `RuntimeConfig` gRPC method. For older kubelet versions than `v1.37`, it will return a preflight warning.",
+    "markdown": "Kubeadm: The preflight check `ContainerRuntimeVersion` validates if the installed container runtime supports the `RuntimeConfig` gRPC method. For older kubelet versions than `v1.37`, it will return a preflight warning. ([#136898](https://github.com/kubernetes/kubernetes/pull/136898), [@carlory](https://github.com/carlory)) [SIG Cluster Lifecycle]",
     "author": "carlory",
     "author_url": "https://github.com/carlory",
     "pr_url": "https://github.com/kubernetes/kubernetes/pull/136898",
