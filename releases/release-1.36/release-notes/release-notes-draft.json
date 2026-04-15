@@ -8175,6 +8175,37 @@
     "duplicate": true,
     "is_mapped": true
   },
+  "137719": {
+    "commit": "c2a7819806ba6078330d495ac4ef274b2e2b3559",
+    "text": "kubelet: Added tiered cgroup v2 memory protection for MemoryQoS: `memory.min` for Guaranteed pods and `memory.low` for Burstable pods, with node-level metrics and rollback reconciliation (KEP-2570).",
+    "markdown": "Kubelet: Added tiered cgroup v2 memory protection for MemoryQoS: `memory.min` for Guaranteed pods and `memory.low` for Burstable pods, with node-level metrics and rollback reconciliation (KEP-2570). ([#137719](https://github.com/kubernetes/kubernetes/pull/137719), [@sohankunkerkar](https://github.com/sohankunkerkar)) [SIG Node, Storage and Testing]",
+    "documentation": [
+      {
+        "description": "[KEP]",
+        "url": "https://github.com/kubernetes/enhancements/issues/2570",
+        "type": "KEP"
+      }
+    ],
+    "author": "sohankunkerkar",
+    "author_url": "https://github.com/sohankunkerkar",
+    "pr_url": "https://github.com/kubernetes/kubernetes/pull/137719",
+    "pr_number": 137719,
+    "areas": [
+      "test",
+      "kubelet",
+      "code-generation"
+    ],
+    "kinds": [
+      "api-change",
+      "feature"
+    ],
+    "sigs": [
+      "node",
+      "storage",
+      "testing"
+    ],
+    "is_mapped": true
+  },
   "137753": {
     "commit": "158b69d2234f2b07ba7b6c5e182fa9df417bdf73",
     "text": "The \"Failed to update lease optimistically\" log message may not be shown to users anymore, depending on the log level they have set.",
