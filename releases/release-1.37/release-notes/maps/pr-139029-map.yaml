@@ -1,0 +1,58 @@
+pr: 139029
+pr_body: |-
+  #### What type of PR is this?
+
+  /kind bug
+  /kind cleanup
+
+  #### What this PR does / why we need it:
+
+  This PR makes two improvements to error handling in the HPA controller:
+
+  **1. Fix format-string argument order in object metric error messages**
+
+  The error format strings in `GetObjectMetricReplicas` and `GetObjectPerPodMetricReplicas` in the HPA replica calculator had the `fmt.Errorf` arguments in the wrong order relative to the format verbs.
+
+  The format string was:
+  ```
+  "unable to get metric %s: %v on %s %s/%s", metricName, objectRef.Kind, namespace, objectRef.Name, err
+  ```
+
+  This caused `objectRef.Kind` to be printed where the error (`%v`) should appear, and `err` to be formatted by the final `%s` meant for `objectRef.Name`. The resulting error messages were misleading and made debugging object metric failures harder.
+
+  Fixed by reordering the format string to the idiomatic Go pattern (context first, error last):
+  ```
+  "unable to get metric %s on %s %s/%s: %w", metricName, objectRef.Kind, namespace, objectRef.Name, err
+  ```
+
+  **2. Use `%w` for proper error wrapping across the package**
+
+  Replaced `%v` with `%w` for error arguments in all `fmt.Errorf` calls throughout the HPA controller (`horizontal.go`), replica calculator (`replica_calculator.go`), and metrics client (`metrics/client.go`). This enables proper error wrapping so that callers can use `errors.Is` and `errors.As` to inspect underlying errors.
+
+  #### Which issue(s) this PR is related to:
+
+  N/A
+
+  #### Special notes for your reviewer:
+
+  - The first commit fixes the argument ordering bug in `GetObjectMetricReplicas` and `GetObjectPerPodMetricReplicas`.
+  - The second commit is a broader cleanup that replaces `%v` → `%w` for all error arguments in `fmt.Errorf` across the `pkg/controller/podautoscaler` package (30 occurrences across 3 files).
+  - Two `%v` usages were intentionally left unchanged: integer format arguments in `computeReplicasForMetrics`, and the sentinel error pattern on line 836 of `horizontal.go` where `%v` is used for `err` alongside a deliberate `%w` for `errSpec`.
+
+  #### Does this PR introduce a user-facing change?
+
+  ```release-note
+  Fixed incorrect error message formatting in the HPA controller when object metric retrieval fails. Error messages now correctly display the metric name, object kind, namespace, object name, and the underlying error. Also improved error wrapping across the HPA controller to use %w instead of %v, enabling proper error chain inspection.
+  ```
+
+  #### Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:
+
+  ```docs
+  NONE
+  ```
+releasenote:
+  text: Fixed incorrect error message formatting in the HPA controller when object
+    metric retrieval fails. Error messages now correctly display the metric name,
+    object kind, namespace, object name, and the underlying error. Also improved error
+    wrapping across the HPA controller to use `%w` instead of `%v`, enabling proper
+    error chain inspection.

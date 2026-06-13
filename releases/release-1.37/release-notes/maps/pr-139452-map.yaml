@@ -1,0 +1,5 @@
+pr: 139452
+pr_body: "/kind feature\r\n\r\n```release-note\r\nGraduate WatchCacheInitializationPostStartHook
+  to GA\r\n```\r\n/assign @wojtek-t"
+releasenote:
+  text: Graduated `WatchCacheInitializationPostStartHook` to GA.

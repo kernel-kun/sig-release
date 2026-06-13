@@ -1,0 +1,24 @@
+pr: 138094
+pr_body: |
+  ## What changed
+  - Disallow `--label-columns` when using `-o custom-columns*` by validating in `GetOptions.Validate`.
+  - Add a unit test covering the validation error.
+
+  ## Why
+  Using `-L/--label-columns` with `-o custom-columns` was silently ignored.
+
+  ## Impact
+  Users now receive a clear error instead of `--label-columns` being ignored with custom-columns output.
+
+  ## Root cause
+  Label columns only apply to the human-readable printer; custom-columns output does not support them.
+
+  ## Tests
+  - `go test ./staging/src/k8s.io/kubectl/pkg/cmd/get -run TestGetValidateLabelColumnsWithCustomColumns`
+
+  ```release-note
+  kubectl get now errors when --label-columns is used with custom-columns output.
+  ```
+releasenote:
+  text: kubectl get now errors when `--label-columns` is used with custom-columns
+    output.

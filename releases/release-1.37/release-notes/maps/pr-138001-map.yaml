@@ -1,0 +1,31 @@
+pr: 138001
+pr_body: "<!--  Thanks for sending a pull request!  Here are some tips for you:\r\n\r\n1.
+  If this is your first time, please read our contributor guidelines: https://git.k8s.io/community/contributors/guide/first-contribution.md#your-first-contribution
+  and developer guide https://git.k8s.io/community/contributors/devel/development.md#development-guide\r\n2.
+  Please label this pull request according to what type of issue you are addressing,
+  especially if this is a release targeted pull request. For reference on required
+  PR/issue labels, read here:\r\nhttps://git.k8s.io/community/contributors/devel/sig-release/release.md#issuepr-kind-label\r\n3.
+  Ensure you have added or ran the appropriate tests for your PR: https://git.k8s.io/community/contributors/devel/sig-testing/testing.md\r\n4.
+  If you want *faster* PR reviews, read how: https://git.k8s.io/community/contributors/guide/pull-requests.md#best-practices-for-faster-reviews\r\n5.
+  If the PR is unfinished, see how to mark it: https://git.k8s.io/community/contributors/guide/pull-requests.md#marking-unfinished-pull-requests\r\n-->\r\n\r\n####
+  What type of PR is this?\r\n\r\n/kind cleanup\r\n\r\n#### What this PR does / why
+  we need it:\r\n\r\nRemoves the `KubeletMinVersion` label from the DRA e2e test covering
+  multiple `ResourceClaims`.\r\n\r\nThe version constraint was originally added because
+  the fix for handling a mix of already prepared and new claims was not available
+  in older kubelet versions. Since the fix has been backported and is now present
+  in all supported releases, the version guard is no longer necessary.\r\n\r\n####
+  Which issue(s) this PR is related to:\r\nN/A\r\n\r\n#### Special notes for your
+  reviewer:\r\nNONE\r\n\r\n#### Does this PR introduce a user-facing change?\r\n```release-note\r\nRemoves
+  the `KubeletMinVersion` label from the DRA e2e test covering multiple `ResourceClaims`.\r\n```\r\n\r\n<!--\r\n####
+  Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs,
+  etc.:\r\n-->\r\n<!--\r\nThis section can be blank if this pull request does not
+  require a release note.\r\n\r\nWhen adding links which point to resources within
+  git repositories, like\r\nKEPs or supporting documentation, please reference a specific
+  commit and avoid\r\nlinking directly to the master branch. This ensures that links
+  reference a\r\nspecific point in time, rather than a document that may change over
+  time.\r\n\r\nSee here for guidance on getting permanent links to files: https://help.github.com/en/articles/getting-permanent-links-to-files\r\n\r\nPlease
+  use the following format for linking documentation:\r\n- [KEP]: <link>\r\n- [Usage]:
+  <link>\r\n- [Other doc]: <link>\r\n-->\r\n<!--\r\n```docs\r\n\r\n```\r\n-->\r\n"
+releasenote:
+  text: Removed the `KubeletMinVersion` label from the DRA e2e test covering multiple
+    `ResourceClaims`.

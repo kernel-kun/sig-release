@@ -1,0 +1,44 @@
+pr: 138746
+pr_body: |-
+  Update etcd images to v3.6.11 across build dependencies, kubeadm defaults, GCE manifests, test manifests, and sample-apiserver deployment.
+
+  #### What type of PR is this?
+
+  #### What this PR does / why we need it:
+  - Update etcd image to latest release v3.6.11
+
+  #### Which issue(s) this PR is related to:
+
+  #### Special notes for your reviewer:
+
+  #### Does this PR introduce a user-facing change?
+  ```release-note
+  kubeadm: updated the supported etcd version to v3.6.11 for supported control plane versions v1.34, v1.35, and v1.36
+  ```
+
+  #### Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:
+  ```docs
+  NONE
+  ```
+
+  /cc @ahrtr @ivanvc @hakman @humblec @ArkaSaha30
+releasenote:
+  action_required: false
+  areas:
+  - test
+  - provider/gcp
+  - kubeadm
+  author: humblec
+  do_not_publish: false
+  documentation: []
+  feature: false
+  kinds:
+  - cleanup
+  sigs:
+  - api-machinery
+  - cloud-provider
+  - cluster-lifecycle
+  - etcd
+  - testing
+  text: 'Kubeadm: Updated the supported etcd version to v3.6.11 for supported control
+    plane versions v1.34, v1.35, and v1.36.'

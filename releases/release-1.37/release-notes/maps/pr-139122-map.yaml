@@ -1,0 +1,44 @@
+pr: 139122
+pr_body: |-
+  #### What type of PR is this?
+
+  /kind feature
+
+  #### What this PR does / why we need it:
+
+  Updates the kubeadm `ContainerRuntimeVersion` preflight warning timeline from `1.37` to `1.38`, matching the kubelet removal timeline.
+
+  #### Which issue(s) this PR is related to:
+
+  Related: https://github.com/kubernetes/enhancements/pull/6087
+  KEP: https://github.com/kubernetes/enhancements/issues/4033
+
+  #### Special notes for your reviewer:
+
+  None.
+
+  #### Does this PR introduce a user-facing change?
+
+  ```release-note
+  kubeadm: the preflight check `ContainerRuntimeVersion` validates if the installed container runtime supports the `RuntimeConfig` gRPC method. For older kubelet versions than 1.38, it will return a preflight warning.
+  ```
+
+  #### Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:
+
+  ```docs
+
+  ```
+releasenote:
+  action_required: false
+  areas:
+  - kubeadm
+  author: carlory
+  do_not_publish: false
+  feature: true
+  kinds:
+  - feature
+  sigs:
+  - cluster-lifecycle
+  text: 'Kubeadm: The preflight check `ContainerRuntimeVersion` validates if the installed
+    container runtime supports the `RuntimeConfig` gRPC method. For older kubelet
+    versions than 1.38, it will return a preflight warning.'

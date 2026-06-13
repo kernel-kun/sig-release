@@ -1,0 +1,44 @@
+pr: 138854
+pr_body: |-
+  #### What type of PR is this?
+  /kind bug
+
+  #### What this PR does / why we need it:
+  The eviction manager's monitoring goroutine in `pkg/kubelet/eviction/eviction_manager.go` ran an unbounded `for {}` with no observation of the parent context:
+
+  ```go
+  go func() {
+      for {
+          evictedPods, err := m.synchronize(ctx, diskInfoProvider, podFunc)
+          if evictedPods != nil && err == nil {
+              ...
+              m.waitForPodsCleanup(logger, podCleanedUpFunc, evictedPods)
+          } else {
+              if err != nil { logger.Error(err, "...") }
+              time.Sleep(monitoringInterval)   // <-- uninterruptible
+          }
+      }
+  }()
+  ```
+
+  On kubelet shutdown the loop kept executing `synchronize()` / `waitForPodsCleanup()`, and the bare `time.Sleep(monitoringInterval)` between iterations was uninterruptible, so the goroutine outlived the kubelet's context and leaked.
+
+  This PR:
+  - checks `ctx.Err()` at the top of every iteration so the loop returns promptly once the parent context is cancelled, and
+  - replaces the bare `time.Sleep` with a `select` on `ctx.Done()` so a pending sleep doesn't delay shutdown.
+
+  #### Which issue(s) this PR fixes:
+  None
+
+  #### Special notes for your reviewer:
+  The change preserves the existing cadence (sleep only when no eviction occurred and no error path is exercised) and reuses the parent context that `Start` already accepts; no new plumbing is required.
+
+  Tests: `go test -count=1 -short ./pkg/kubelet/eviction/...` passes.
+
+  #### Does this PR introduce a user-facing change?
+  ```release-note
+  kubelet: the eviction manager's monitoring goroutine now exits promptly when the kubelet's context is cancelled, fixing a goroutine leak on shutdown.
+  ```
+releasenote:
+  text: 'Kubelet: the eviction manager''s monitoring goroutine now exits promptly
+    #     when the kubelet''s context is cancelled, fixing a goroutine leak on shutdown.'

@@ -1,0 +1,60 @@
+pr: 138098
+pr_body: |-
+  #### What type of PR is this?
+
+  /kind bug
+
+  #### What this PR does / why we need it:
+
+  Fixes duplicated mount arguments in the log string output from
+  `MakeMountArgsSensitiveWithMountFlags`.
+
+  When `fstype` is set, the function builds the log string with
+  `strings.Join(mountArgs, " ")`, which re-joins the entire
+  `mountArgs` slice (including any previously appended mount flags)
+  into `mountArgsLogStr`. This produces confusing duplicated output
+  like:
+
+      mount_linux.go:270] Mounting cmd (mount) with arguments
+      (--no-mtab--no-mtab -t lustre -o noatime,flock ...
+
+  This has caused confusion during customer triage — the duplicated
+  `--no-mtab--no-mtab` makes it look like mount was invoked
+  incorrectly when the actual mount call is fine.
+
+  The fix replaces the `strings.Join(mountArgs, " ")` call with
+  direct string concatenation of just the `-t` flag and fstype
+  value, matching how the other branches (options, source, target)
+  build the log string.
+
+  Also adds `expectedLogStr` to the test cases to catch log string
+  duplication regressions.
+
+  #### Which issue(s) this PR is related to:
+
+  N/A
+
+  #### Special notes for your reviewer:
+
+  This change was developed in cooperation with David Bradley.
+  GitHub Copilot was used to help prepare the commit and PR.
+
+  Previously submitted as kubernetes/mount-utils#21 before
+  learning that changes must go through the staging directory
+  in this repo.
+
+  /sig storage
+
+  #### Does this PR introduce a user-facing change?
+
+  ```release-note
+  Fix duplicated mount arguments in log string output from MakeMountArgsSensitiveWithMountFlags
+  ```
+
+  #### Additional documentation
+
+  ```docs
+  N/A
+  ```
+releasenote:
+  text: Fixed duplicated mount arguments in log string output from `MakeMountArgsSensitiveWithMountFlags`.

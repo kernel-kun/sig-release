@@ -1,0 +1,16 @@
+pr: 137666
+pr_body: "#### What type of PR is this?\r\n/kind bug\r\n/kind regression\r\n/sig apps\r\n\r\n####
+  What this PR does / why we need it:\r\nThis change ensures that Parallel pod management
+  in statefulset controller does not count unavailable, old pods during maxUnavailable
+  calculation. This allows statefulset to continue rollout.\r\n\r\n#### Which issue(s)
+  this PR is related to:\r\nFixes #137409\r\nKEP: https://github.com/kubernetes/enhancements/issues/961\r\n\r\n####
+  Special notes for your reviewer:\r\n/assign @atiratree \r\n\r\n#### Does this PR
+  introduce a user-facing change?\r\n```release-note\r\nFix a regression in kubernetes
+  v1.35, where with a Parallel pod management policy unavailable pods from an older
+  revision were incorrectly counted towards maxUnavailable budget. \r\n```\r\n\r\n####
+  Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs,
+  etc.:\r\n```docs\r\n[KEP]: https://github.com/kubernetes/enhancements/issues/961\r\n```\r\n"
+releasenote:
+  text: Fixed a regression in kubernetes `v1.35`, where with a Parallel pod management
+    policy unavailable pods from an older revision were incorrectly counted towards
+    maxUnavailable budget.

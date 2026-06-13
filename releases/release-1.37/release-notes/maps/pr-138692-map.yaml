@@ -1,0 +1,16 @@
+pr: 138692
+pr_body: "#### What type of PR is this?\r\n\r\n/kind bug\r\n\r\n#### What this PR
+  does / why we need it:\r\n\r\nFetchInitConfigurationFromCluster always called SetAPIEndpointDynamicDefaults,
+  which invokes ChooseAPIServerBindAddress and requires a default route on the host.
+  Worker nodes joining the cluster don't need a LocalAPIEndpoint and may legitimately
+  have no default route, causing kubeadm join to fail with:\r\n\r\n```\r\nunable to
+  fetch the kubeadm-config ConfigMap: unable to select an IP from\r\ndefault routes.\r\n```\r\n\r\nAdd
+  a skipAPIEndpoint parameter to SetInitDynamicDefaults and pass `!getAPIEndpoint`
+  from FetchInitConfigurationFromCluster, so the endpoint defaulter is bypassed when
+  the caller did not request the endpoint (worker join, non-control-plane reset/certs/upgrade
+  paths).\r\n\r\n#### Which issue(s) this PR is related to:\r\n\r\nN/A\r\n\r\n####
+  Does this PR introduce a user-facing change?\r\n```release-note\r\nkubeadm: skip
+  LocalAPIEndpoint defaulting on 'kubeadm join' for worker nodes.\r\n```"
+releasenote:
+  text: 'Kubeadm: Skipped LocalAPIEndpoint defaulting on `kubeadm join` for worker
+    #     nodes.'

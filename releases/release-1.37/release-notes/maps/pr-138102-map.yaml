@@ -1,0 +1,21 @@
+pr: 138102
+pr_body: "#### What type of PR is this?\r\n/kind bug\r\n\r\n#### What this PR does
+  / why we need it:\r\nThis PR adds robust IP validation to the master lease reconciler.
+  \r\nA misconfigured apiserver (e.g., using --advertise-address=127.0.0.1) could
+  previously poison the master lease pool in etcd. This caused the kubernetes Service
+  endpoint reconciliation to fail for all apiservers because the invalid address was
+  rejected during the final Endpoints object validation.\r\n\r\nThe fix validates
+  the local IP on startup when using the master-count or lease endpoint reconciler,
+  to prevent invalid addresses (loopback, link-local, unspecified) from being persisted.\r\n\r\n####
+  Which issue(s) this PR is related to:\r\nFixes #121942\r\n\r\n#### Special notes
+  for your reviewer:\r\nThe validation logic in pkg/controlplane/reconcilers intentionally
+  mimics pkg/apis/core/validation.ValidateEndpointIP to avoid circular dependencies
+  while maintaining consistent behavior for the kubernetes Service.\r\n\r\n#### Does
+  this PR introduce a user-facing change?\r\n```release-note\r\nkube-apiserver now
+  validates the `--advertise-address` IP when using `--endpoint-reconciler-type` `master-count`
+  or `lease` to ensure the specified IP address can be persisted to an `Endpoints`
+  API object successfully.\r\n```"
+releasenote:
+  text: Kube-apiserver now validates the `--advertise-address` IP when using `--endpoint-reconciler-type`
+    `master-count` or `lease` to ensure the specified IP address can be persisted
+    to an `Endpoints` API object successfully.

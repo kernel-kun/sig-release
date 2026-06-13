@@ -1,0 +1,20 @@
+pr: 138070
+pr_body: "#### What type of PR is this?\r\n\r\n/kind cleanup\r\n/sig api-machinery\r\n\r\n####
+  What this PR does / why we need it:\r\n\r\nAdds `// Deprecated:` comments to `MultiLock`,
+  `UnknownLeader`, and `ConcatRawRecord` in `k8s.io/client-go/tools/leaderelection/resourcelock`.\r\n\r\n`MultiLock`
+  was used to facilitate migration from ConfigMap/Endpoints-based leader election
+  to Lease-based leader election. Support for non-lease lock types (`endpointsleases`,
+  `configmapsleases`) was removed in Kubernetes 1.28 (commit 2bd42061b6e), making
+  `MultiLock` non-functional — the factory function returns an error for these lock
+  types. There are no internal consumers of `MultiLock`, `UnknownLeader`, or `ConcatRawRecord`
+  anywhere in the Kubernetes codebase.\r\n\r\n#### Which issue(s) this PR is related
+  to:\r\n\r\nN/A\r\n\r\n#### Special notes for your reviewer:\r\n\r\nExternal usage
+  is minimal, a few vendored instances of old controller-runtime code. Marking as
+  deprecated so we may be able to remove it in the future.\r\n\r\n#### Does this PR
+  introduce a user-facing change?\r\n\r\n```release-note\r\nDeprecated MultiLock,
+  UnknownLeader, and ConcatRawRecord in client-go leader election resourcelock package.
+  \r\n```\r\n\r\n#### Additional documentation e.g., KEPs (Kubernetes Enhancement
+  Proposals), usage docs, etc.:\r\n\r\n```docs\r\nNONE\r\n```"
+releasenote:
+  text: Deprecated `MultiLock`, `UnknownLeader`, and `ConcatRawRecord` in client-go
+    leader election resourcelock package.

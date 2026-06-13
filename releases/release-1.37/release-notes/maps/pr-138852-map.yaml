@@ -1,0 +1,40 @@
+pr: 138852
+pr_body: |-
+  #### What type of PR is this?
+  /kind bug
+
+  #### What this PR does / why we need it:
+  `RetrieveValidatedConfigInfo` in `cmd/kubeadm/app/discovery/https/https.go` previously read the response body of the cluster-info HTTP GET unconditionally and then tried to parse it as a kubeconfig:
+
+  ```go
+  response, err := client.Get(httpsURL)
+  if err != nil {
+      return nil, err
+  }
+  defer response.Body.Close()
+
+  kubeconfig, err := io.ReadAll(response.Body)   // <-- no status code check
+  ```
+
+  A non-200 response (404, 5xx, or an HTML error page from a misconfigured server) would silently flow into `clientcmd.Load()` and produce a confusing parse error far from the actual cause. This PR adds an explicit status check, matching the pattern already used in `cmd/kubeadm/app/util/version.go`.
+
+  #### Which issue(s) this PR fixes:
+  None
+
+  #### Special notes for your reviewer:
+  The error message follows the format used by `version.go`:
+
+  ```go
+  if response.StatusCode != http.StatusOK {
+      return nil, errors.Errorf("unable to fetch cluster-info. URL: %q, status: %v", httpsURL, response.Status)
+  }
+  ```
+
+  #### Does this PR introduce a user-facing change?
+  ```release-note
+  kubeadm: when fetching cluster-info over HTTPS during discovery, the HTTP response status code is now checked, so a non-200 response produces a clear error instead of a confusing kubeconfig parse failure.
+  ```
+releasenote:
+  text: 'Kubeadm: When fetching cluster-info over HTTPS during discovery, the HTTP
+    response status code is now checked, so a non-200 response produces a clear error
+    instead of a confusing kubeconfig parse failure.'

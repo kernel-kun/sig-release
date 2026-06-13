@@ -1,0 +1,49 @@
+pr: 138250
+pr_body: "<!--  Thanks for sending a pull request!  Here are some tips for you:\r\n\r\n1.
+  If this is your first time, please read our contributor guidelines: https://git.k8s.io/community/contributors/guide/first-contribution.md#your-first-contribution
+  and developer guide https://git.k8s.io/community/contributors/devel/development.md#development-guide\r\n2.
+  Please label this pull request according to what type of issue you are addressing,
+  especially if this is a release targeted pull request. For reference on required
+  PR/issue labels, read here:\r\nhttps://git.k8s.io/community/contributors/devel/sig-release/release.md#issuepr-kind-label\r\n3.
+  Ensure you have added or ran the appropriate tests for your PR: https://git.k8s.io/community/contributors/devel/sig-testing/testing.md\r\n4.
+  If you want *faster* PR reviews, read how: https://git.k8s.io/community/contributors/guide/pull-requests.md#best-practices-for-faster-reviews\r\n5.
+  If the PR is unfinished, see how to mark it: https://git.k8s.io/community/contributors/guide/pull-requests.md#marking-unfinished-pull-requests\r\n-->\r\n\r\n####
+  What type of PR is this?\r\n\r\n/kind feature\r\n\r\n#### What this PR does / why
+  we need it:\r\n\r\nMake kubeadm aware of the bindAddress, if set through `extraArgs`.
+  This makes it possible to do a more precise preflight check and avoid false negatives.\r\nFor
+  example, if the API server is bound to 10.0.0.1:6443, it is ok that something else
+  is listening on 192.168.0.1:6443.\r\n\r\n- PortOpenCheck now accepts an address
+  to check port availability on a specific interface.\r\n- Name() includes address
+  if provided.\r\n- InitNodeChecks uses API server bind-address for port check.\r\n-
+  Expanded unit tests for PortOpenCheck and Name method.\r\n\r\nNote: This works for
+  bindAddress set through extraArgs. It will not work for patches that are applied
+  later.\r\n\r\n#### Which issue(s) this PR is related to:\r\n\r\nhttps://github.com/kubernetes/kubeadm/issues/3300\r\n\r\n####
+  Special notes for your reviewer:\r\n\r\nDisclosing AI usage to abide by the updated
+  policy. I have used AI assistance for parts of this PR.\r\n\r\n#### Does this PR
+  introduce a user-facing change?\r\n<!--\r\nIf no, just write \"NONE\" in the release-note
+  block below.\r\nIf yes, a release note is required:\r\nEnter your extended release
+  note in the block below. If the PR requires additional action from users switching
+  to the new release, include the string \"action required\".\r\n\r\nFor more information
+  on release notes see: https://git.k8s.io/community/contributors/guide/release-notes.md\r\n-->\r\n```release-note\r\nkubeadm:
+  during preflight, instead of running the \"Port-xx\" checks for kube-apiserver,
+  kube-scheduler, kube-controller-manager and etcm using a \"net.Listen()\" call without
+  an address (which instructs the operating system to bind to all available unicast
+  and anycast IP addresses for a given port), pass an address which is configured
+  in the kubeadm config for the respective components either using the \"localAPIEndpoint.address\"
+  field or using the \"--bind-address\" extraArgs override.\r\n```\r\n\r\n#### Additional
+  documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n\r\n<!--\r\nThis
+  section can be blank if this pull request does not require a release note.\r\n\r\nWhen
+  adding links which point to resources within git repositories, like\r\nKEPs or supporting
+  documentation, please reference a specific commit and avoid\r\nlinking directly
+  to the master branch. This ensures that links reference a\r\nspecific point in time,
+  rather than a document that may change over time.\r\n\r\nSee here for guidance on
+  getting permanent links to files: https://help.github.com/en/articles/getting-permanent-links-to-files\r\n\r\nPlease
+  use the following format for linking documentation:\r\n- [KEP]: <link>\r\n- [Usage]:
+  <link>\r\n- [Other doc]: <link>\r\n-->\r\n```docs\r\n\r\n```\r\n"
+releasenote:
+  text: 'Kubeadm: During preflight, instead of running the `Port-xx` checks for Kube-apiserver,
+    Kube-scheduler, Kube-controller-manager and etcm using a `net.Listen()` call without
+    an address (which instructs the operating system to bind to all available unicast
+    and anycast IP addresses for a given port), pass an address which is configured
+    in the kubeadm config for the respective components either using the `localAPIEndpoint.address
+    field or using the `--bind-address` extraArgs override.'

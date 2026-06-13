@@ -1,0 +1,38 @@
+pr: 138853
+pr_body: |-
+  #### What type of PR is this?
+  /kind bug
+
+  #### What this PR does / why we need it:
+  `fetchInitConfigurationFromJoinConfiguration` in `cmd/kubeadm/app/cmd/join.go` assigned to `tlsBootstrapCfg.Contexts[tlsBootstrapCfg.CurrentContext].Cluster` without first checking that the current-context entry actually exists in the context map:
+
+  ```go
+  tlsBootstrapCfg.Contexts[tlsBootstrapCfg.CurrentContext].Cluster = initConfiguration.ClusterName
+  ```
+
+  If the TLS bootstrap kubeconfig is malformed (e.g. the `current-context` name has been edited away or doesn't appear in the `contexts:` list), this produces a nil pointer dereference and crashes `kubeadm join` instead of returning a clear error.
+
+  The fix adopts the same defensive pattern already used in `cmd/kubeadm/app/cmd/phases/init/kubeletfinalize.go`:
+
+  ```go
+  currentContext, ok := tlsBootstrapCfg.Contexts[tlsBootstrapCfg.CurrentContext]
+  if !ok || currentContext == nil {
+      return nil, errors.Errorf("...current-context...not found...")
+  }
+  currentContext.Cluster = initConfiguration.ClusterName
+  ```
+
+  #### Which issue(s) this PR fixes:
+  None
+
+  #### Special notes for your reviewer:
+  The error path is unreachable in well-formed kubeconfigs. The change only affects the error message produced for malformed bootstrap kubeconfigs (which previously panicked).
+
+  #### Does this PR introduce a user-facing change?
+  ```release-note
+  kubeadm: kubeadm join now returns a clear error message when the TLS bootstrap kubeconfig has a current-context that does not appear in the contexts list, instead of panicking with a nil pointer dereference.
+  ```
+releasenote:
+  text: 'Kubeadm: The `kubeadm join` now returns a clear error message when the TLS
+    bootstrap kubeconfig has a current-context that does not appear in the contexts
+    list, instead of panicking with a nil pointer dereference.'

@@ -1,0 +1,19 @@
+pr: 139008
+pr_body: "The original thinking was that even though the races are obviously possible
+  (e.g. one apiserver admits the PodGroup and the other deletes the Workload at the
+  same time), those are corner cases, and the UX improvement related to the fact that
+  I made a typo in my PodGroup and referenced non-existing Workload and I get immediate
+  feedback is worth it.\r\n\r\nBut, (while it's a valid usecase now, as controllers
+  are not yet integrated with the Workload/PodGroup APIs), we do not expect users
+  to manage the Workload/PodGroup objects themselves. It should all happen behind
+  the scenes and be managed by controllers.\r\n\r\nIn such case, the typos and UX
+  are not really a problem, but the complexity and impact (e.g. on scalability if
+  we would decide to have consistent reads) is present.\r\n\r\nTo address that, we
+  actually will remove this admission plugin completely.\r\n\r\n\r\nThe PR was done
+  with AI (Gemini) assistance.\r\n\r\n/kind bug\r\n/sig scheduling\r\n\r\nRef #138012\r\nRef
+  #138224\r\n\r\n```release-note\r\nRemove [alpha] admission plugin that validates
+  PodGroup resources reference an existing Workload and match the declared PodGroupTemplate
+  spec.\r\n```\r\n\r\n"
+releasenote:
+  text: Removed [alpha] admission plugin that validates PodGroup resources reference
+    an existing Workload and match the declared PodGroupTemplate spec.

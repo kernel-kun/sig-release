@@ -1,0 +1,34 @@
+pr: 139168
+pr_body: "#### What type of PR is this?\r\n\r\n/kind bug\r\n/kind regression\r\n\r\n####
+  What this PR does / why we need it:\r\n\r\nRestores pre-1.34 ability to use Secret
+  API objects with binary data as container env values\r\n\r\n#### Which issue(s)
+  this PR is related to:\r\n\r\nhttps://github.com/kubernetes/kubernetes/issues/139132\r\n\r\n####
+  Special notes for your reviewer:\r\n\r\nThis changes the cri-api value field from
+  `string` to `bytes`. This encodes identically on the wire, but removes the requirement
+  that the value be valid utf-8. That requirement was not enforced in practice prior
+  to 1.34, due to the use of gogo protobuf to encode on the kubelet side and decode
+  on the container runtime side.\r\n\r\nThis does not yet ripple out type changes
+  in kubelet packages to make this field a []byte, since we likely will backport this
+  to 1.34+.\r\n\r\nA follow-up should make the value fields `[]byte` to clarify non-utf8
+  data is possible.\r\n\r\n#### Does this PR introduce a user-facing change?\r\n```release-note\r\nFixes
+  a 1.34+ regression handling containers with environment values set from Secret API
+  objects containing binary non-utf8 data.\r\n```\r\n\r\n/hold for discussion\r\n/sig
+  node architecture\r\ncc @kubernetes/sig-node-api-reviews @kubernetes/api-reviewers "
+releasenote:
+  action_required: false
+  areas:
+  - test
+  - kubelet
+  author: liggitt
+  do_not_publish: false
+  feature: false
+  kinds:
+  - bug
+  - api-change
+  - regression
+  sigs:
+  - architecture
+  - node
+  - testing
+  text: Fixed a 1.34+ regression handling containers with environment values set from
+    Secret API objects containing binary non-utf8 data.

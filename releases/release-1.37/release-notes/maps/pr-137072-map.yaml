@@ -1,0 +1,13 @@
+pr: 137072
+pr_body: "#### What type of PR is this?\r\n\r\n/kind feature\r\n\r\n#### What this
+  PR does / why we need it:\r\n\r\nGraduate stale alpha serviceaccount metrics to
+  beta:\r\n- `serviceaccount_legacy_tokens_total`\r\n- `serviceaccount_stale_tokens_total`\r\n-
+  `serviceaccount_valid_tokens_total`\r\n\r\n#### Which issue(s) this PR is related
+  to:\r\n\r\nFixed #136313\r\n\r\n#### Special notes for your reviewer:\r\n\r\n####
+  Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nPromote `serviceaccount_legacy_tokens_total`,
+  `serviceaccount_stale_tokens_total`, `serviceaccount_valid_tokens_total` to beta\r\n```\r\n\r\n####
+  Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs,
+  etc.:\r\n\r\n```docs\r\n\r\n```\r\n"
+releasenote:
+  text: Promoted `serviceaccount_legacy_tokens_total`, `serviceaccount_stale_tokens_total`
+    and `serviceaccount_valid_tokens_total` to Beta.

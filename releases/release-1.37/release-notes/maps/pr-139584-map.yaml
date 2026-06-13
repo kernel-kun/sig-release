@@ -1,0 +1,23 @@
+pr: 139584
+pr_body: "#### What type of PR is this?\r\n\r\n/kind feature\r\n\r\n#### What this
+  PR does / why we need it:\r\n\r\nBump images and versions to go 1.26.4 and distroless
+  iptables\r\n\r\n#### Which issue(s) this PR is related to:\r\n\r\nxref https://github.com/kubernetes/release/issues/4421\r\n\r\n####
+  Does this PR introduce a user-facing change?\r\n```release-note\r\nKubernetes is
+  now built using Go 1.26.4\r\n```\r\n\r\n#### Additional documentation e.g., KEPs
+  (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n```docs\r\n\r\n```\r\n\r\n/assign
+  @Verolop @saschagrunert @dims  \r\ncc @kubernetes/release-engineering "
+releasenote:
+  action_required: false
+  areas:
+  - test
+  - release-eng
+  author: cpanato
+  do_not_publish: false
+  documentation: []
+  feature: true
+  kinds:
+  - feature
+  sigs:
+  - release
+  - testing
+  text: Kubernetes is now built using Go `1.26.4`.
