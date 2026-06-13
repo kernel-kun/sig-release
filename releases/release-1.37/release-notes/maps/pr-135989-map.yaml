@@ -1,0 +1,10 @@
+pr: 135989
+pr_body: ""
+releasenote:
+  text: |-
+    Changed image volume validation to reject empty `image.reference` fields in Pod templates (Deployment, StatefulSet, DaemonSet, Job, etc.).
+  sigs:
+  - apps
+  - node
+  kinds:
+  - bug

@@ -1,0 +1,13 @@
+pr: 139287
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed a regression in `v1.36` where modifications to scheduling directives (`nodeSelector`, `tolerations`, `nodeAffinity`) on suspended Jobs were rejected if the `JobSuspended` condition had not yet been set by the job controller.
+  sigs:
+  - apps
+  - testing
+  kinds:
+  - bug
+  - regression
+  areas:
+  - test

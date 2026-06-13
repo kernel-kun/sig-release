@@ -1,0 +1,11 @@
+pr: 138937
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed a `kubelet` panic in image pull credential verification when `maxParallelImagePulls` is configured above 31.
+  sigs:
+  - node
+  kinds:
+  - bug
+  areas:
+  - kubelet

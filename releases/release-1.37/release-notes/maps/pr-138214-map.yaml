@@ -1,15 +1,13 @@
 pr: 138214
-pr_body: "kubectl: strict check for exec command\r\n\r\nRe-open of #131353 which was
-  closed due to inactivity.\r\n\r\nFix https://github.com/kubernetes/kubectl/issues/1745\r\n\r\nThe
-  current implementation doesn't properly check for arguments between the resource
-  name and the dash separator. This can lead to unexpected behavior when using commands
-  like 'kubectl exec -it pod-0 bash -- run.sh', which should raise an error but doesn't.\r\n\r\nThis
-  fix adds a check to ensure that when a dash separator (--) is used, there are no
-  extra arguments between the resource name and the dash. If there are extra arguments,
-  it will raise an error.\r\n\r\nChanges:\r\n- Only allow argsLenAtDash == 0 or ==
-  1 (exactly one arg before --)\r\n- Add test for extra args between pod and --\r\n-
-  Add test for flag-like args without dash separator\r\n\r\n/kind bug\r\n\r\n####
-  Does this PR introduce a user-facing change?\r\n```release-note\r\nImprove error
-  reporting when invoking kubectl exec\r\n```\r\n"
+pr_body: ""
 releasenote:
-  text: Improved error reporting when invoking `kubectl exec`.
+  text: |-
+    Improved error reporting when invoking `kubectl exec`.
+  sigs:
+  - cli
+  - testing
+  kinds:
+  - bug
+  areas:
+  - test
+  - kubectl

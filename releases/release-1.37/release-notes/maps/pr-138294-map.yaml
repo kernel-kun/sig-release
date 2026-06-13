@@ -1,0 +1,10 @@
+pr: 138294
+pr_body: ""
+releasenote:
+  text: |-
+    Changed the HPA controller to reconcile newly created and spec-changed HPAs immediately instead of waiting for the full resync period (default 15s).
+  sigs:
+  - apps
+  - autoscaling
+  kinds:
+  - bug

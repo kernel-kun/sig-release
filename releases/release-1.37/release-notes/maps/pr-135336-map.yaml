@@ -1,0 +1,16 @@
+pr: 135336
+pr_body: ""
+releasenote:
+  text: |-
+    Removed the generally available feature gate `AnyVolumeDataSource`, which was locked and enabled since `v1.33`.
+  sigs:
+  - api-machinery
+  - apps
+  - storage
+  - testing
+  kinds:
+  - cleanup
+  - api-change
+  areas:
+  - test
+  - code-generation

@@ -1,0 +1,10 @@
+pr: 135964
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed `kubectl get storageclass` to show only the effective default StorageClass as "(default)" when multiple StorageClasses have the default annotation.
+  sigs:
+  - cli
+  - storage
+  kinds:
+  - bug

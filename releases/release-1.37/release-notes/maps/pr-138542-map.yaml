@@ -1,26 +1,8 @@
 pr: 138542
-pr_body: "#### What type of PR is this?\r\n\r\n/kind cleanup\r\n\r\n#### What this
-  PR does / why we need it:\r\n\r\nBoth kube-controller-manager and kube-scheduler
-  create ResourceClaims. Using the same metric (sub-system: \"dynamic_resource_allocation\",
-  name: \"resourceclaim_creates_total\") in both components simplifies aggregation
-  across the entire cluster.\r\n\r\n#### Which issue(s) this PR is related to:\r\n\r\nFixes:
-  https://github.com/kubernetes/kubernetes/issues/135075\r\n\r\n#### Special notes
-  for your reviewer:\r\n\r\n#### Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nkube-controller-manager
-  and kube-scheduler now both expose \"dynamic_resource_allocation_resourceclaim_creates_total\"
-  as metric for number of ResourceClaims created, replacing differently names metrics
-  in each component. The kube-controller-manager metric \"resource_claims\" gets moved
-  to the same \"dynamic_resource_allocation\" sub-system.\r\n```\r\n\r\n/cc @yliaog
-  @bart0sh \r\n/assign @dgrisonnet "
+pr_body: ""
 releasenote:
-  action_required: false
-  areas:
-  - test
-  - release-eng
-  author: pohly
-  do_not_publish: false
-  feature: false
-  kinds:
-  - cleanup
+  text: |-
+    `kube-controller-manager` and `kube-scheduler` now both expose `dynamic_resource_allocation_resourceclaim_creates_total` as a metric for the number of ResourceClaims created, replacing the differently named metrics in each component. The `kube-controller-manager` metric `resource_claims` was moved to the same `dynamic_resource_allocation` subsystem.
   sigs:
   - apps
   - instrumentation
@@ -28,7 +10,8 @@ releasenote:
   - release
   - scheduling
   - testing
-  text: Kube-controller-manager and Kube-scheduler now both expose `dynamic_resource_allocation_resourceclaim_creates_total`
-    as metric for number of ResourceClaims created, replacing differently names metrics
-    in each component. The Kube-controller-manager metric `resource_claims` gets moved
-    to the same `dynamic_resource_allocation` sub-system.
+  kinds:
+  - cleanup
+  areas:
+  - test
+  - release-eng

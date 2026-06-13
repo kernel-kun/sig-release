@@ -1,52 +1,14 @@
 pr: 136709
-pr_body: |-
-  ## What this PR does
-
-  This PR improves the error message when CEL selectors access non-existent device attributes. When users write expressions like `device.attributes["gpu.nvidia.com"].sharingStrategy == "runai-fractions"` without checking if the attribute exists first, they currently get a generic "no such key" error with no guidance on how to fix it.
-
-  ## Why this approach
-
-  ### String matching for error detection
-
-  We detect "no such key" errors using `strings.HasPrefix(err.Error(), "no such key:")` instead of `errors.Is()` because:
-  - cel-go's `resolutionError` type is not exported (internal package)
-  - The cel-go library wraps errors in `types.Err` which only forwards the error message
-  - Kubernetes itself uses this pattern in apiextensions-apiserver (`staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver/schema/cel/validation.go:759`)
-
-  ### Why these three allocator files
-
-  The modification is applied to three allocator variants:
-  - `structured/internal/stable/allocator_stable.go`
-  - `structured/internal/incubating/allocator_incubating.go`
-  - `structured/internal/experimental/allocator_experimental.go`
-
-  These three files represent different maturity levels of the DRA allocator implementation. They must be kept in sync because:
-  1. They are the core CEL selector evaluation points in DRA
-  2. Features rotate between them as they mature (experimental → incubating → stable)
-  3. Maintaining consistency ensures behavior is preserved during rotation
-
-  ### Error message references documentation
-
-  The enhanced error message links to `pkg.go.dev/k8s.io/api/resource/v1#CELDeviceSelector` instead of hardcoding examples. This ensures the error guidance stays current as the CEL documentation evolves with the codebase.
-
-  ### Documentation improvements
-
-  We added concrete examples to `CELDeviceSelector` showing how to handle optional attributes using `orValue()`, `has()`, and the `?` operator. These examples demonstrate the robust patterns users should adopt to avoid "no such key" errors.
-
-  ## Release note
-
-  ```release-note
-  Improved CEL error messages in Dynamic Resource Allocation to provide guidance when accessing non-existent device attributes. Error messages now link to documentation on handling optional fields using orValue() and has().
-  ```
-
-  ## Related Issue
-
-  Fixes #135661
-
-  ## Test
-
-  Added unit tests in `errors_test.go` to verify error enhancement behavior.
+pr_body: ""
 releasenote:
-  text: Improved CEL error messages in Dynamic Resource Allocation to provide guidance
-    when accessing non-existent device attributes. Error messages now link to documentation
-    on handling optional fields using `orValue()` and `has()`.
+  text: |-
+    Improved CEL error messages in Dynamic Resource Allocation to provide guidance when accessing non-existent device attributes. Error messages now link to documentation on handling optional fields using `orValue()` and `has()`.
+  sigs:
+  - api-machinery
+  - node
+  - scheduling
+  kinds:
+  - documentation
+  - api-change
+  areas:
+  - code-generation

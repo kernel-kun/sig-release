@@ -1,27 +1,15 @@
 pr: 137116
-pr_body: "#### What type of PR is this?\r\n\r\n/kind cleanup\r\n\r\n#### What this
-  PR does / why we need it:\r\n\r\nPromote remain metrics to BETA:\r\n- `apiserver_watch_events_total`\r\n-
-  `apiserver_watch_events_sizes`\r\n\r\n#### Which issue(s) this PR is related to:\r\n\r\nRelated
-  #136304\r\n\r\n#### Special notes for your reviewer:\r\n\r\nThis PR add the tests
-  for metrics.\r\n\r\n#### Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nPromote
-  `apiserver_watch_events_total` and `apiserver_watch_events_sizes` to BETA\r\n```\r\n\r\n####
-  Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs,
-  etc.:\r\n\r\n```docs\r\n\r\n```\r\n"
+pr_body: ""
 releasenote:
-  action_required: false
-  areas:
-  - test
-  - apiserver
-  - stable-metrics
-  author: tico88612
-  do_not_publish: false
-  documentation: []
-  feature: false
-  kinds:
-  - cleanup
+  text: |-
+    Promoted `apiserver_watch_events_total` and `apiserver_watch_events_sizes` to Beta.
   sigs:
   - api-machinery
   - instrumentation
   - testing
-  text: Promoted `apiserver_watch_events_total` and `apiserver_watch_events_sizes`
-    to beta.
+  kinds:
+  - cleanup
+  areas:
+  - test
+  - apiserver
+  - stable-metrics

@@ -1,0 +1,12 @@
+pr: 138967
+pr_body: ""
+releasenote:
+  text: |-
+    Set the `nominatedNodeName` field on pods from a PodGroup after a successful PodGroup preemption, consistent with single-pod preemption.
+  sigs:
+  - scheduling
+  - testing
+  kinds:
+  - feature
+  areas:
+  - test

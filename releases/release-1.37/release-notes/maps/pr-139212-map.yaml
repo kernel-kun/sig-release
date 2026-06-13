@@ -1,0 +1,11 @@
+pr: 139212
+pr_body: ""
+releasenote:
+  text: |-
+    Locked the deprecated `DeclarativeValidationTakeover` feature gate to its default value; it can no longer be set.
+  sigs:
+  - api-machinery
+  kinds:
+  - deprecation
+  areas:
+  - apiserver

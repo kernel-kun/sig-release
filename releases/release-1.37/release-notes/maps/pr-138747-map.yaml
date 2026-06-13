@@ -1,26 +1,17 @@
 pr: 138747
-pr_body: |-
-  Bump go.etcd.io/etcd/{api,client/pkg,client,pkg,server}/v3 from v3.6.10 to v3.6.11. go.etcd.io/etcd/raft/v3 is intentionally left unchanged (separate release cadence).
-
-  #### What type of PR is this?
-
-  #### What this PR does / why we need it:
-  - Bump etcd SDK modules to v3.6.11
-
-  #### Which issue(s) this PR is related to:
-
-  #### Special notes for your reviewer:
-
-  #### Does this PR introduce a user-facing change?
-  ```release-note
-  Updates the etcd client library to v3.6.11
-  ```
-
-  #### Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:
-  ```docs
-
-  ```
-
-  /cc @ahrtr @ivanvc @hakman @humblec @ArkaSaha30
+pr_body: ""
 releasenote:
-  text: Updates the etcd client library to `v3.6.11`.
+  text: |-
+    Updated the etcd client library to `v3.6.11`.
+  sigs:
+  - api-machinery
+  - auth
+  - cloud-provider
+  - node
+  - scheduling
+  kinds:
+  - cleanup
+  areas:
+  - apiserver
+  - cloudprovider
+  - dependency

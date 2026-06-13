@@ -1,0 +1,10 @@
+pr: 131599
+pr_body: ""
+releasenote:
+  text: |-
+    Added GROUP, SCOPE, VERSIONS, and CREATED AT columns to `kubectl get crd` output, alongside the existing NAME column.
+    This provides at-a-glance visibility into the API group, scope (Cluster or Namespaced), served versions (comma-separated), and creation timestamp of each CustomResourceDefinition.
+  sigs:
+  - api-machinery
+  kinds:
+  - feature

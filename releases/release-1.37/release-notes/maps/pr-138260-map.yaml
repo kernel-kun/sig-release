@@ -1,0 +1,32 @@
+pr: 138260
+pr_body: ""
+releasenote:
+  text: |-
+    Switched the json tag for inlined `TypeMeta` fields in the API Go types from `",inline"` to `""`. `inline` was not a recognized json serializer option and did not modify marshal or unmarshal behavior.
+  sigs:
+  - api-machinery
+  - apps
+  - architecture
+  - auth
+  - cli
+  - cloud-provider
+  - cluster-lifecycle
+  - etcd
+  - instrumentation
+  - network
+  - node
+  - scheduling
+  - storage
+  - testing
+  kinds:
+  - api-change
+  areas:
+  - test
+  - kubelet
+  - kube-proxy
+  - apiserver
+  - kubectl
+  - cloudprovider
+  - kubeadm
+  - code-generation
+  - dependency

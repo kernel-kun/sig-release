@@ -1,0 +1,13 @@
+pr: 136189
+pr_body: ""
+releasenote:
+  text: |-
+    Promoted `kubelet` volume metrics (`storage_operation_duration_seconds`, `volume_operation_total_seconds`) from Alpha to Beta stability, providing stronger API and label stability guarantees for metric consumers.
+  sigs:
+  - instrumentation
+  - storage
+  kinds:
+  - api-change
+  - feature
+  areas:
+  - stable-metrics

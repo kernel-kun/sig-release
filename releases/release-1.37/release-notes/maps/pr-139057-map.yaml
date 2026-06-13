@@ -1,0 +1,10 @@
+pr: 139057
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed a bug where nomination of a gated pod wasn't preventing lower-priority pods from scheduling on the nominated space.
+  sigs:
+  - scheduling
+  kinds:
+  - bug
+  - failing-test

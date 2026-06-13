@@ -1,16 +1,13 @@
 pr: 138694
-pr_body: "#### What type of PR is this?\r\n/kind feature\r\n\r\n#### What this PR
-  does / why we need it:\r\nThis PR updates kubectl to set its executable path in
-  the `KUBECTL_PATH` environment variable when executing a plugin.\r\n\r\nA plugin
-  can read `KUBECTL_PATH` if it needs to know which kubectl binary was used to invoke
-  the plugin. This is important for certain plugins that need to re-invoke kubectl
-  after performing some processing, especially when the kubectl executable exists
-  outside of the system path or is named something other than kubectl.\r\n\r\n####
-  Which issue(s) this PR is related to:\r\nFixes https://github.com/kubernetes/kubectl/issues/1841\r\n\r\n####
-  Special notes for your reviewer:\r\n\r\n#### Does this PR introduce a user-facing
-  change?\r\n```release-note\r\nkubectl now sets its path in the KUBECTL_PATH environment
-  variable when executing a plugin.\r\n```\r\n\r\n#### Additional documentation e.g.,
-  KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n```docs\r\n\r\n```\r\n"
+pr_body: ""
 releasenote:
-  text: Kubectl now sets its path in the `KUBECTL_PATH` environment variable when
-    executing.
+  text: |-
+    Set the `KUBECTL_PATH` environment variable to the path of the `kubectl` binary when it executes a plugin.
+  sigs:
+  - cli
+  - testing
+  kinds:
+  - feature
+  areas:
+  - test
+  - kubectl

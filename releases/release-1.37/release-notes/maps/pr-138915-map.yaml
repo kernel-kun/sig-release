@@ -1,0 +1,9 @@
+pr: 138915
+pr_body: ""
+releasenote:
+  text: |-
+    The `kube-apiserver` `--enable-logs-handler` flag, deprecated in `v1.15`, is no longer marked deprecated. It remains off by default.
+  sigs:
+  - api-machinery
+  kinds:
+  - cleanup

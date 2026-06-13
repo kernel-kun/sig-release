@@ -1,34 +1,13 @@
 pr: 139121
-pr_body: |-
-  #### What type of PR is this?
-
-  /kind feature
-
-  #### What this PR does / why we need it:
-
-  Updates the kubelet `cri_losing_support` metric removal timeline from `1.37.0` to `1.38.0`, along with the matching node e2e expectation.
-
-  #### Which issue(s) this PR is related to:
-
-  Related: https://github.com/kubernetes/enhancements/pull/6087
-  KEP: https://github.com/kubernetes/enhancements/issues/4033
-
-  #### Special notes for your reviewer:
-
-  None.
-
-  #### Does this PR introduce a user-facing change?
-
-  ```release-note
-  kubelet: defer the configurations flags (and the related fallback behavior) deprecation removal timeline from 1.37 to 1.38 to align with containerd v1.7 support
-  ```
-
-  #### Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:
-
-  ```docs
-
-  ```
+pr_body: ""
 releasenote:
-  text: 'Kubelet: defer the configurations flags (and the related fallback behavior)
-         deprecation removal timeline from 1.37 to 1.38 to align with containerd
-    v1.7 support.'
+  text: |-
+    `kubelet`: Deferred the deprecation removal timeline for the configuration flags (and the related fallback behavior) from `v1.37` to `v1.38` to align with containerd `v1.7` support.
+  sigs:
+  - node
+  - testing
+  kinds:
+  - feature
+  areas:
+  - test
+  - kubelet

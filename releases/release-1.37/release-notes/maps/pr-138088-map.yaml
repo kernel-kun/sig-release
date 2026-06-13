@@ -1,27 +1,11 @@
 pr: 138088
-pr_body: "#### What type of PR is this?\r\n/kind bug\r\n/sig node\r\n\r\n#### What
-  this PR does / why we need it:\r\nThis PR makes kubelet HTTP verb handling explicit
-  for logs-related handlers to avoid unintended behavior drift.\r\n\r\n- For read-only
-  kubelet server endpoints, it enforces `GET` only.\r\n- For NodeLogQuery (`journalServer`),
-  it explicitly allows `GET, POST` and rejects other verbs with `405` and `Allow:
-  GET, POST`.\r\n\r\n#### Key changes:\r\n- Added reusable method filter helpers in
-  `pkg/kubelet/server/server.go` and applied `GET`-only filtering to:\r\n  - `/pods`\r\n
-  \ - `/containerLogs/{podNamespace}/{podID}/{containerName}`\r\n  - `/runningpods`\r\n
-  \ - `/logs` and `/logs/{logpath:*}`\r\n  - `/debug/pprof/{subpath:*}`\r\n- Removed
-  per-handler method check in `getLogs` and enforced methods at route level.\r\n-
-  Updated `pkg/kubelet/kubelet_server_journal.go` to explicitly allow only `GET, POST`
-  and return correct `Allow` header.\r\n- Added/updated focused tests:\r\n  - `TestGETOnlyEndpointsRejectPostWithAllowHeader`
-  in `pkg/kubelet/server/server_test.go`\r\n  - `TestJournalServerMethodRestriction`
-  in `pkg/kubelet/kubelet_server_journal_test.go`\r\n\r\n#### Which issue(s) this
-  PR is related to:\r\nFixes #137503\r\n\r\n#### Special notes for your reviewer:\r\nThis
-  keeps NodeLogQuery compatibility (`GET, POST`) while making verb restrictions explicit
-  and consistent across related kubelet routes.\r\n\r\n#### Does this PR introduce
-  a user-facing change?\r\n```release-note\r\nKubelet now enforces explicit HTTP method
-  restrictions for logs-related endpoints. Read-only kubelet server endpoints reject
-  non-GET methods with 405. NodeLogQuery explicitly allows only GET and POST and rejects
-  other methods with 405.\r\n```\r\n\r\n\r\n#### Additional documentation e.g., KEPs
-  (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n```docs\r\nN/A\r\n```"
+pr_body: ""
 releasenote:
-  text: Kubelet now enforces explicit HTTP method restrictions for logs-related endpoints.
-    Read-only kubelet server endpoints reject non-GET methods with `405`. NodeLogQuery
-    explicitly allows only GET and POST and rejects other methods with `405`.
+  text: |-
+    Changed the `kubelet` to enforce explicit HTTP method restrictions for logs-related endpoints. Read-only `kubelet` server endpoints reject non-GET methods with 405. NodeLogQuery allows only GET and POST and rejects other methods with 405.
+  sigs:
+  - node
+  kinds:
+  - bug
+  areas:
+  - kubelet

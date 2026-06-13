@@ -1,41 +1,11 @@
 pr: 138727
-pr_body: |
-  ## What type of PR is this?
-  /kind bug
-
-  ## What this PR does / why we need it
-
-  Fixes a nil pointer dereference bug in the Windows memory eviction threshold notifier.
-
-  In `checkMemoryUsage()` (`memory_threshold_notifier_windows.go`), when `GetPerformanceInfo()` fails, the error is logged but execution continues. The next line dereferences `perfInfo` (which is nil), causing a panic:
-
-  ```go
-  perfInfo, err := winstats.GetPerformanceInfo()
-  if err != nil {
-      logger.Error(err, "...")
-      // missing return - falls through to nil dereference below
-  }
-  commitLimitBytes := perfInfo.CommitLimitPages * perfInfo.PageSize  // PANIC
-  ```
-
-  ### Fix
-
-  1. **Add early return** after the error log to prevent the nil dereference.
-  2. **Fix typo** in variable name: `commmiLimitBytes` → `commitLimitBytes` (triple 'm').
-
-  ## Which issue(s) this PR fixes
-
-  None
-
-  ## Does this PR introduce a user-facing change?
-
-  ```release-note
-  Fix nil pointer dereference in Windows memory eviction threshold notifier when GetPerformanceInfo() fails.
-  ```
-
-  ## Additional documentation
-
-  N/A
+pr_body: ""
 releasenote:
-  text: Fixed nil pointer dereference in Windows memory eviction threshold notifier
-    when `GetPerformanceInfo()` fails.
+  text: |-
+    Fixed nil pointer dereference in Windows memory eviction threshold notifier when `GetPerformanceInfo()` fails.
+  sigs:
+  - node
+  kinds:
+  - bug
+  areas:
+  - kubelet

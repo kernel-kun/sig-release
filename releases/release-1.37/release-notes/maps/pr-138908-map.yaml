@@ -1,13 +1,13 @@
 pr: 138908
-pr_body: "/kind bug\r\n\r\n#### What this PR does / why we need it:\r\n\r\nFixes https://github.com/kubernetes/kubernetes/issues/133388\r\n\r\n####
-  Which issue(s) this PR is related to:\r\n\r\n#### Special notes for your reviewer:\r\n\r\n####
-  Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nFix apiserver
-  to create metadata fields for create-via-update and created-via-apply requests like
-  they are for create requests. UID and resourceVersion preconditions are still honored.\r\n```\r\n\r\n####
-  Additional documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs,
-  etc.:\r\n\r\nPrecondtions are tested else where such as via TestCreateOnApplyFailsWithUID
-  and RunTestGuaranteedUpdate"
+pr_body: ""
 releasenote:
-  text: Fixed apiserver to create metadata fields for create-via-update and created-via-apply
-    requests like they are for create requests. UID and resourceVersion preconditions
-    are still honored.
+  text: |-
+    Fixed the `kube-apiserver` to create metadata fields for create-via-update and created-via-apply requests like they are for create requests. `UID` and `resourceVersion` preconditions are still honored.
+  sigs:
+  - api-machinery
+  - testing
+  kinds:
+  - bug
+  areas:
+  - test
+  - apiserver

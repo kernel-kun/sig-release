@@ -1,0 +1,9 @@
+pr: 136920
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed an issue in the CronJob controller where it failed to adopt existing Jobs by erroneously using the empty namespace from the `jobTemplate`.
+  sigs:
+  - apps
+  kinds:
+  - bug

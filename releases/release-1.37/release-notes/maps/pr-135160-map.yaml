@@ -1,0 +1,9 @@
+pr: 135160
+pr_body: ""
+releasenote:
+  text: |-
+    Changed the `PatchPodStatus` API in the scheduler framework to accept a slice of Pod conditions (`[]*v1.PodCondition`) instead of a single condition (`*v1.PodCondition`). This allows scheduler plugins to update multiple Pod conditions in a single API call, preventing newer calls from overwriting older ones when multiple conditions need to be updated concurrently.
+  sigs:
+  - scheduling
+  kinds:
+  - feature

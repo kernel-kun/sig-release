@@ -1,19 +1,23 @@
 pr: 138572
-pr_body: "#### What type of PR is this?\r\n\r\n/kind feature\r\n\r\n#### What this
-  PR does / why we need it:\r\n\r\nConverts the `DisruptionMode` enum field to struct
-  to support future extensibility.\r\n\r\nSince the change is backward incompatible,
-  it also promotes the `scheduling.k8s.io` API group from `v1alpha2` to `v1alpha3`
-  and drops `v1alpha2` entirely.\r\n\r\n#### Which issue(s) this PR is related to:\r\nFixes
-  #138575\r\nFixes #138965\r\n\r\n#### Special notes for your reviewer:\r\n\r\n####
-  Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nConverts
-  the `DisruptionMode` enum field to struct to support future extensibility.\r\nPromotes
-  the `scheduling.k8s.io` API group from `v1alpha2` to `v1alpha3` and drops `v1alpha2`
-  entirely.\r\nAction Required: Remember to remove all `v1alpha2` objects from the
-  api-server while performing the cluster update.\r\n```\r\n\r\n#### Additional documentation
-  e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n\r\n```docs\r\n-
-  [KEP]: https://github.com/kubernetes/enhancements/issues/4671\r\n- [KEP]: https://github.com/kubernetes/enhancements/issues/5832\r\n```\r\n"
+pr_body: ""
 releasenote:
   text: |-
-    Converted the `DisruptionMode` enum field to struct to support future extensibility.
-    Promoted the `scheduling.k8s.io` API group from `v1alpha2` to `v1alpha3` and drops `v1alpha2` entirely.
-    Remember to remove all `v1alpha2` objects from the api-server while performing the cluster update.
+    Converted the `DisruptionMode` enum field to a struct to support future extensibility. Promoted the `scheduling.k8s.io` API group from `v1alpha2` to `v1alpha3` and dropped `v1alpha2` entirely.
+    ACTION REQUIRED: Remove all `v1alpha2` objects from the `kube-apiserver` before performing the cluster update.
+  sigs:
+  - api-machinery
+  - apps
+  - cli
+  - etcd
+  - node
+  - scheduling
+  - testing
+  kinds:
+  - api-change
+  - feature
+  areas:
+  - test
+  - kubelet
+  - apiserver
+  - kubectl
+  - code-generation

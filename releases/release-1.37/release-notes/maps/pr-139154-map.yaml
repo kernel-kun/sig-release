@@ -1,0 +1,12 @@
+pr: 139154
+pr_body: ""
+releasenote:
+  text: |-
+    The deprecated Alpha metrics `apiserver_cache_list_total`, `apiserver_cache_list_fetched_objects_total`, and `apiserver_cache_list_returned_objects_total` are no longer exposed by default. Consumers should migrate to the unified `apiserver_storage_list_*` metrics with the `storage="watchcache"` label.
+  sigs:
+  - api-machinery
+  - instrumentation
+  kinds:
+  - cleanup
+  areas:
+  - apiserver

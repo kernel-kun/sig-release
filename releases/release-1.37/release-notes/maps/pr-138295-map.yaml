@@ -1,28 +1,9 @@
 pr: 138295
-pr_body: "#### What type of PR is this?\r\n\r\n/kind bug\r\n\r\n#### What this PR
-  does / why we need it:\r\n\r\nWhen a `WatchWithContext` call returns a 410 Gone
-  (resource expired) error, the\r\nRetryWatcher logs it at ERROR level before retrying.
-  Since this is an expected\r\nand recoverable condition (e.g. resource version too
-  old), it should not produce\r\nERROR-level log noise.\r\n\r\nThis PR adds an `apierrors.IsGone(err)`
-  check before the catch-all `klog.Error`\r\ncall in the watch establishment error
-  handling, downgrading the log to\r\n`klog.V(4).Info` — consistent with how `IsProbableEOF`
-  and `IsTimeout` are\r\nalready handled.\r\n\r\n#### Which issue(s) this PR is related
-  to:\r\n\r\nFixes kubernetes/kubernetes#122207\r\nRef kubernetes/client-go#1321\r\n\r\n####
-  Special notes for your reviewer:\r\n\r\nThe existing `watch.Error` event path (line
-  246, `http.StatusGone`) already\r\nhandles 410 Gone from the watch *stream*. This
-  fix covers the case where\r\nthe `WatchWithContext` *establishment* call itself
-  returns a Gone error.\r\n\r\n#### Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nclient-go:
-  RetryWatcher now logs 410 Gone (resource expired) errors at debug verbosity (V(4))
-  instead of ERROR level during watch establishment.\r\n\r\n```\r\n\r\n#### Additional
-  documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n\r\nNONE\r\n\r\n\r\n"
+pr_body: ""
 releasenote:
-  action_required: false
-  author: kencochrane
-  do_not_publish: false
-  feature: false
-  kinds:
-  - bug
+  text: |-
+    Changed `client-go` `RetryWatcher` to log 410 Gone (resource expired) errors at debug verbosity (`V(4)`) instead of ERROR level during watch establishment.
   sigs:
   - api-machinery
-  text: 'Client-go: RetryWatcher now logs 410 Gone (resource expired) errors at debug
-    verbosity (V(4)) instead of ERROR level during watch establishment.'
+  kinds:
+  - bug

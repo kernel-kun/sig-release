@@ -1,0 +1,10 @@
+pr: 138408
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed a bug where Pod `.status.resourceClaimStatuses` could flap between partial lists of claims when multiple claims were used in the Pod.
+  sigs:
+  - apps
+  - node
+  kinds:
+  - bug

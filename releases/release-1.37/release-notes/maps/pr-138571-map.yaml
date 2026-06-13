@@ -1,0 +1,11 @@
+pr: 138571
+pr_body: ""
+releasenote:
+  text: |-
+    Changed `kube-proxy` to skip full-sync operations when operating in large-cluster mode (more than 1000 endpoints).
+  sigs:
+  - network
+  kinds:
+  - bug
+  areas:
+  - kube-proxy

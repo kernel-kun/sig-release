@@ -1,19 +1,11 @@
 pr: 138701
-pr_body: "#### What type of PR is this?\r\n\r\n/kind feature\r\n\r\n#### What this
-  PR does / why we need it:\r\n\r\nAdds an alpha, opt-in feature gate to skip the
-  storage fallback for consistent LIST requests when the watch cache cannot catch
-  up within the current timeout window.\r\n\r\nWhen the feature gate is disabled,
-  kube-apiserver preserves the current behavior and falls back to storage.\r\nWhen
-  the feature gate is enabled, kube-apiserver returns a retryable 429 instead of falling
-  back to storage.\r\n\r\n#### Which issue(s) this PR is related to:\r\n\r\nFixes
-  #138494\r\n\r\n#### Special notes for your reviewer:\r\n\r\n\r\n\r\n#### Does this
-  PR introduce a user-facing change?\r\n\r\n```release-note\r\nAdded an alpha feature
-  gate, ConsistentListFromCacheSkipTimeoutFallback. When enabled, kube-apiserver returns
-  HTTP 429 for consistent LIST requests that cannot be served from watch cache within
-  the timeout window, instead of falling back to storage.\r\n```\r\n\r\n#### Additional
-  documentation e.g., KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n\r\n```docs\r\n\r\n```"
+pr_body: ""
 releasenote:
-  text: Added an alpha feature gate, `ConsistentListFromCacheSkipTimeoutFallback`.
-    When enabled, Kube-apiserver returns `HTTP 429` for consistent LIST requests that
-    cannot be served from watch cache within the timeout window, instead of falling
-    back to storage.
+  text: |-
+    Added an Alpha feature gate, `ConsistentListFromCacheSkipTimeoutFallback`. When enabled, `kube-apiserver` returns HTTP 429 for consistent LIST requests that cannot be served from the watch cache within the timeout window, instead of falling back to storage.
+  sigs:
+  - api-machinery
+  kinds:
+  - feature
+  areas:
+  - apiserver

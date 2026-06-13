@@ -1,0 +1,15 @@
+pr: 138536
+pr_body: ""
+releasenote:
+  text: |-
+    Updated CoreDNS to `v1.14.3`.
+  sigs:
+  - cloud-provider
+  - cluster-lifecycle
+  kinds:
+  - cleanup
+  - feature
+  areas:
+  - provider/gcp
+  - kubeadm
+  - dependency

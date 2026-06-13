@@ -1,0 +1,11 @@
+pr: 138587
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed `kubelet` failure starting on ZFS due to missing `cadvisor` plugin.
+  sigs:
+  - node
+  kinds:
+  - regression
+  areas:
+  - kubelet

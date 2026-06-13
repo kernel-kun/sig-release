@@ -1,0 +1,10 @@
+pr: 138792
+pr_body: ""
+releasenote:
+  text: |-
+    Fixed a theoretical issue where nodes might have been denied access to synthesized ResourceClaims for pods using extended resources (for example, `nvidia.com/gpu`), causing containers to get stuck in `ContainerCreating`. Not observed in practice.
+  sigs:
+  - auth
+  - node
+  kinds:
+  - cleanup

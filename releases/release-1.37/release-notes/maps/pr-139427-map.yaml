@@ -1,27 +1,17 @@
 pr: 139427
-pr_body: "#### What type of PR is this?\r\n\r\n/kind dependency\r\n\r\n#### What this
-  PR does / why we need it:\r\n\r\nUpdate etcd image to v3.7.0-rc.0\r\n\r\n#### Which
-  issue(s) this PR is related to:\r\n\r\nConsumes the image promoted in https://github.com/kubernetes/k8s.io/pull/9556\r\n\r\nFollowing
-  similar patterns as https://github.com/kubernetes/kubernetes/pull/102062\r\n\r\n####
-  Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nUpdated the
-  default etcd version to 3.7.0-rc.0\r\n```\r\n\r\n#### Additional documentation e.g.,
-  KEPs (Kubernetes Enhancement Proposals), usage docs, etc.:\r\n\r\n```docs\r\nNONE\r\n```"
+pr_body: ""
 releasenote:
-  action_required: false
-  areas:
-  - test
-  - provider/gcp
-  - kubeadm
-  author: Jefftree
-  do_not_publish: false
-  documentation: []
-  feature: false
-  kinds:
-  - dependency
+  text: |-
+    Updated the default etcd version to `v3.7.0-rc.0`.
   sigs:
   - api-machinery
   - cloud-provider
   - cluster-lifecycle
   - etcd
   - testing
-  text: Updated the default etcd version to `3.7.0-rc.0`.
+  kinds:
+  - dependency
+  areas:
+  - test
+  - provider/gcp
+  - kubeadm

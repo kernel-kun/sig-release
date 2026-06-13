@@ -1,0 +1,11 @@
+pr: 139516
+pr_body: ""
+releasenote:
+  text: |-
+    Changed `kube-proxy` to truncate nftables comments to the kernel's 128-byte limit before programming service maps, avoiding sync failures for long Service names.
+  sigs:
+  - network
+  kinds:
+  - bug
+  areas:
+  - kube-proxy

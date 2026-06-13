@@ -1,0 +1,10 @@
+pr: 138981
+pr_body: ""
+releasenote:
+  text: |-
+    Avoided costly comparisons during SELinux metric emission.
+  sigs:
+  - apps
+  - storage
+  kinds:
+  - bug

@@ -1,0 +1,9 @@
+pr: 138271
+pr_body: ""
+releasenote:
+  text: |-
+    Changed `client-go` to request `v2` for aggregated discovery instead of falling back to `v2beta1`.
+  sigs:
+  - api-machinery
+  kinds:
+  - cleanup

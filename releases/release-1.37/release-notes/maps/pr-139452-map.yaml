@@ -1,5 +1,11 @@
 pr: 139452
-pr_body: "/kind feature\r\n\r\n```release-note\r\nGraduate WatchCacheInitializationPostStartHook
-  to GA\r\n```\r\n/assign @wojtek-t"
+pr_body: ""
 releasenote:
-  text: Graduated `WatchCacheInitializationPostStartHook` to GA.
+  text: |-
+    Graduated `WatchCacheInitializationPostStartHook` to GA.
+  sigs:
+  - api-machinery
+  kinds:
+  - feature
+  areas:
+  - apiserver

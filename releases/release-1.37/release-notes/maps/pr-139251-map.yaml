@@ -1,14 +1,15 @@
 pr: 139251
-pr_body: "#### What type of PR is this?\r\n\r\n/kind cleanup\r\n/kind api-change\r\n\r\n####
-  What this PR does / why we need it:\r\n\r\nSee: https://github.com/kubernetes/kubernetes/issues/138826
-  This is an API rename without wire format changes. Consumers of this alpha feature
-  will need to rebuild with the new names, but it doesn't change the wire format and
-  compatibility.\r\n\r\n#### Which issue(s) this PR is related to:\r\n\r\nFixes #138826\r\n\r\n####
-  Does this PR introduce a user-facing change?\r\n\r\n```release-note\r\nThe change
-  is for developers building against cri-api. Enum keys of Signal are now prefixed
-  with `SIGNAL_` in api.proto definition to avoid conflicts with C++ macroses. The
-  wire format is unchanged.\r\n```"
+pr_body: ""
 releasenote:
-  text: Renamed Signal Enum keys in cri-api which are now prefixed with `SIGNAL_`
-    in api.proto definition to avoid conflicts with C++ macroses. The wire format
-    is unchanged.
+  text: |-
+    Renamed signal enum keys in `cri-api`, which are now prefixed with `SIGNAL_` in the `api.proto` definition, to avoid conflicts with C++ macros. The wire format is unchanged.
+  sigs:
+  - apps
+  - node
+  - testing
+  kinds:
+  - cleanup
+  - api-change
+  areas:
+  - test
+  - kubelet

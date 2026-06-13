@@ -1,32 +1,11 @@
 pr: 138390
-pr_body: |-
-  ## What this PR does / why we need it
-
-  `MemberPromote` has a logic bug where it does not distinguish between two exit states from the first polling loop:
-  1. The member is **already a voting member** (`!isLearner`)
-  2. The learner is **started and ready to be promoted** (`isLearner && started`)
-
-  In case (1), the function should return early. Instead, it proceeds to call the etcd `MemberPromote` API, which returns an error for non-learner members, causing unnecessary retries until timeout.
-
-  This can happen when a learner is promoted by a concurrent operation (e.g., another kubeadm process) between the status check and the promote call.
-
-  ## How does this PR fix it
-
-  Track the `alreadyPromoted` state from the first polling loop. If the member was already a voting member, return `nil` immediately before attempting the promote API call.
-
-  ## Which issue(s) this PR fixes
-
-  None
-
-  ## Does this PR introduce a user-facing change?
-
-  ```release-note
-  kubeadm: fix MemberPromote to skip the etcd promote API call when the member is already a voting member, avoiding unnecessary retries and timeout.
-  ```
-
-  /sig cluster-lifecycle
-  /area kubeadm
-  /kind bug
+pr_body: ""
 releasenote:
-  text: 'Kubeadm: Fixed MemberPromote to skip the etcd promote API call when the member
-    #     is already a voting member, avoiding unnecessary retries and timeout.'
+  text: |-
+    `kubeadm`: Fixed MemberPromote to skip the etcd promote API call when the member is already a voting member, avoiding unnecessary retries and timeout.
+  sigs:
+  - cluster-lifecycle
+  kinds:
+  - bug
+  areas:
+  - kubeadm

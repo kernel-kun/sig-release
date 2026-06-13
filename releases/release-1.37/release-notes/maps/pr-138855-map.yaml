@@ -1,0 +1,9 @@
+pr: 138855
+pr_body: ""
+releasenote:
+  text: |-
+    Retried binding API calls in `kube-scheduler` when a transient error occurs.
+  sigs:
+  - scheduling
+  kinds:
+  - feature
