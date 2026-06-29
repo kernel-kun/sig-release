@@ -1,10 +1,11 @@
 pr: 138999
-pr_body: ''
 releasenote:
-  text: Added support in `client-go` certificate manager `Config` for specifying a
-    custom `GenerateKey` function.
+  text: |-
+    Added support in `client-go` certificate manager `Config` for specifying a custom `GenerateKey` function.
   sigs:
   - api-machinery
   - auth
   kinds:
   - feature
+  areas: []
+pr_body: ""

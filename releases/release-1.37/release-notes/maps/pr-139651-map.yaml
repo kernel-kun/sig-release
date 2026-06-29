@@ -1,9 +1,7 @@
 pr: 139651
-pr_body: ''
 releasenote:
-  text: Fixed a bug in `kube-scheduler` when the `DRADeviceTaintRules` feature gate
-    is enabled that could cause scheduler panics when DeviceTaintRules exist and ResourceSlices
-    change, or cause new DeviceTaintRules changes to be ignored.
+  text: |-
+    Fixed a bug in `kube-scheduler` when the `DRADeviceTaintRules` feature gate is enabled that could cause scheduler panics when DeviceTaintRules exist and ResourceSlices change, or cause new DeviceTaintRules changes to be ignored.
   sigs:
   - node
   - testing
@@ -12,3 +10,4 @@ releasenote:
   - failing-test
   areas:
   - test
+pr_body: ""

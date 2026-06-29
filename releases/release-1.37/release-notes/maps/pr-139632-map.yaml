@@ -1,8 +1,7 @@
 pr: 139632
-pr_body: ''
 releasenote:
-  text: Added support for CBOR encoding in discovery endpoints and structured error
-    responses when the `CBORServingAndStorage` feature gate is enabled.
+  text: |-
+    Added support for CBOR encoding in discovery endpoints and structured error responses when the `CBORServingAndStorage` feature gate is enabled.
   sigs:
   - api-machinery
   - testing
@@ -11,3 +10,4 @@ releasenote:
   areas:
   - test
   - apiserver
+pr_body: ""

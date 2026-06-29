@@ -1,9 +1,7 @@
 pr: 137964
-pr_body: ''
 releasenote:
-  text: 'ACTION REQUIRED: Moved the `NodeSyncPeriod` field from `KubeCloudSharedConfiguration`
-    to `CloudControllerManagerConfiguration.NodeLifecycleController.NodeMonitorPeriod`.
-    Update cloud-controller-manager configuration files to use the new field location.'
+  text: |-
+    Moved the `NodeSyncPeriod` field from `KubeCloudSharedConfiguration` to `CloudControllerManagerConfiguration.NodeLifecycleController.NodeMonitorPeriod`.
   sigs:
   - api-machinery
   - apps
@@ -16,3 +14,4 @@ releasenote:
   areas:
   - cloudprovider
   - code-generation
+pr_body: ""

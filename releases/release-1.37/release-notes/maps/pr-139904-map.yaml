@@ -1,9 +1,10 @@
 pr: 139904
-pr_body: ''
 releasenote:
-  text: Fixed a scheduler bug where clearing `NominatedNodeName` could leave Pods
-    tracked under an empty node key in the scheduler's nominator.
+  text: |-
+    Fixed a scheduler bug where clearing `NominatedNodeName` could leave Pods tracked under an empty node key in the scheduler's nominator.
   sigs:
   - scheduling
   kinds:
   - bug
+  areas: []
+pr_body: ""

@@ -1,12 +1,11 @@
 pr: 139760
-pr_body: ''
 releasenote:
-  text: Improved `kubelet` Topology Manager error messages when the `prefer-closest-numa-nodes`
-    policy option is enabled on Windows nodes that do not expose NUMA distance information,
-    clarifying that the option is not supported on those nodes.
+  text: |-
+    Improved `kubelet` Topology Manager error messages when the `prefer-closest-numa-nodes` policy option is enabled on Windows nodes that do not expose NUMA distance information, clarifying that the option is not supported on those nodes.
   sigs:
   - node
   kinds:
   - cleanup
   areas:
   - kubelet
+pr_body: ""

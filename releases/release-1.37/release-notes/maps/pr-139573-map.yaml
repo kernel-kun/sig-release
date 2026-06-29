@@ -1,11 +1,11 @@
 pr: 139573
-pr_body: ''
 releasenote:
-  text: Fixed CEL cost estimation for `metadata.name` and `metadata.generateName`
-    in CRDs to correctly account for the default maximum length of 253 characters,
-    unless additional validations are defined on those fields.
+  text: |-
+    Fixed CEL cost estimation for `metadata.name` and `metadata.generateName` in CRDs to correctly account for the default maximum length of 253 characters, unless additional validations are defined on those metadata fields.
   sigs:
   - api-machinery
   kinds:
   - bug
   - api-change
+  areas: []
+pr_body: ""

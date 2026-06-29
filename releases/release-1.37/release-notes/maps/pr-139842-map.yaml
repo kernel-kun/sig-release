@@ -1,12 +1,11 @@
 pr: 139842
-pr_body: ''
 releasenote:
-  text: Improved the resilience of `kubeadm` etcd learner promotion by correctly handling
-    cases where promotion succeeds but a transient client-side error is returned,
-    preventing unnecessary `kubeadm join --control-plane` failures.
+  text: |-
+    Improved the resilience of `kubeadm` etcd learner promotion by correctly handling cases where promotion succeeds but a transient client-side error is returned, preventing unnecessary etcd-join failures.
   sigs:
   - cluster-lifecycle
   kinds:
   - bug
   areas:
   - kubeadm
+pr_body: ""

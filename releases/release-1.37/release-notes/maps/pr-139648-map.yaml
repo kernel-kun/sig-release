@@ -1,8 +1,7 @@
 pr: 139648
-pr_body: ''
 releasenote:
-  text: Enabled scaling to and from zero by default for the HorizontalPodAutoscaler
-    (HPA).
+  text: |-
+    Enabled scaling to and from zero by default for the HorizontalPodAutoscaler (HPA).
   sigs:
   - apps
   - autoscaling
@@ -11,3 +10,4 @@ releasenote:
   - feature
   areas:
   - test
+pr_body: ""

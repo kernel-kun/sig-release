@@ -1,7 +1,7 @@
 pr: 139735
-pr_body: ''
 releasenote:
-  text: Updated CoreDNS to `v1.14.4`.
+  text: |-
+    Updated CoreDNS to `v1.14.4`.
   sigs:
   - cloud-provider
   - cluster-lifecycle
@@ -11,3 +11,4 @@ releasenote:
   - provider/gcp
   - kubeadm
   - dependency
+pr_body: ""

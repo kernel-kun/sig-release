@@ -1,10 +1,7 @@
 pr: 139777
-pr_body: ''
 releasenote:
-  text: Changed `kubeadm` to explicitly set `KubeProxyConfiguration.mode` to `iptables`
-    when `KubeProxyConfiguration` is not provided or when the `mode` field is empty.
-    In `v1.37`, `kube-proxy` will warn if the field is not explicitly set as part
-    of the planned transition to `nftables` as the default mode in a future release.
+  text: |-
+    Changed `kubeadm` to explicitly set `KubeProxyConfiguration.mode` to iptables when `KubeProxyConfiguration` is not provided or when the `mode` field is empty. In `v1.37`, `kube-proxy` will warn if the field is not explicitly set as part of the planned transition to nftables as the default mode in a future release.
   sigs:
   - cluster-lifecycle
   kinds:
@@ -12,3 +9,4 @@ releasenote:
   - deprecation
   areas:
   - kubeadm
+pr_body: ""

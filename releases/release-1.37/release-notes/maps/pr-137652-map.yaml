@@ -1,12 +1,11 @@
 pr: 137652
-pr_body: ''
 releasenote:
-  text: Fixed inconsistent `ephemeral-storage` formatting between capacity and allocatable
-    values in Node status by using the `DecimalSI` format for `ephemeral-storage`
-    capacity.
+  text: |-
+    Fixed inconsistent `ephemeral-storage` formatting between capacity and allocatable values in Node status by using the `DecimalSI` format for `ephemeral-storage` capacity.
   sigs:
   - node
   kinds:
   - bug
   areas:
   - kubelet
+pr_body: ""

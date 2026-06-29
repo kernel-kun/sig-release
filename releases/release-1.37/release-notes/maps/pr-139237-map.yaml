@@ -1,11 +1,7 @@
 pr: 139237
-pr_body: ''
 releasenote:
-  text: Changed `kube-apiserver` with `--enable-aggregator-routing=true` to evenly
-    load-balance requests across admission webhook endpoints, preventing connection
-    caching from routing all concurrent requests to a single backend endpoint. Cluster
-    administrators can temporarily opt out of this behavior using the `WebhookRoundTripLoadBalancing`
-    feature gate (Beta, default true).
+  text: |-
+    Changed `kube-apiserver` with `--enable-aggregator-routing=true` to evenly load-balance requests across admission webhook endpoints, preventing connection caching from routing all concurrent requests to a single backend endpoint. Cluster administrators can temporarily opt out of this behavior using the `WebhookRoundTripLoadBalancing` feature gate (Beta, default true).
   sigs:
   - api-machinery
   - testing
@@ -15,3 +11,4 @@ releasenote:
   areas:
   - test
   - apiserver
+pr_body: ""

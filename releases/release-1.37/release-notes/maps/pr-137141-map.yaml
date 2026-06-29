@@ -1,11 +1,11 @@
 pr: 137141
-pr_body: ''
 releasenote:
-  text: Fixed a bug where the `kubelet` node shutdown manager could leak D-Bus connections
-    on repeated failures, eventually leading to thread exhaustion and crashes.
+  text: |-
+    Fixed a bug where the `kubelet` node shutdown manager could leak D-Bus connections on repeated failures, eventually leading to thread exhaustion and crashes.
   sigs:
   - node
   kinds:
   - bug
   areas:
   - kubelet
+pr_body: ""

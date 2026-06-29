@@ -1,8 +1,10 @@
 pr: 139407
-pr_body: ''
 releasenote:
-  text: Added the `CompositePodGroup` feature gate to enable Composite Pod Group functionality.
+  text: |-
+    Added the `CompositePodGroup` feature gate to enable Composite Pod Group functionality.
   sigs:
   - scheduling
   kinds:
   - feature
+  areas: []
+pr_body: ""

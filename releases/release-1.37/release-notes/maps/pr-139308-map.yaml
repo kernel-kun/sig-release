@@ -1,12 +1,11 @@
 pr: 139308
-pr_body: ''
 releasenote:
-  text: 'Added the `WatchListCompression` feature gate (Beta, enabled by default)
-    to compress `WatchList` responses with gzip for clients that send `Accept-Encoding:
-    gzip`. Regular `Watch` requests are unaffected.'
+  text: |-
+    Added the `WatchListCompression` feature gate (Beta, enabled by default) to compress `WatchList` responses with gzip for clients that send `Accept-Encoding: gzip`. Regular `Watch` requests are unaffected.
   sigs:
   - api-machinery
   kinds:
   - feature
   areas:
   - apiserver
+pr_body: ""

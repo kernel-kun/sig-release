@@ -1,9 +1,10 @@
 pr: 139732
-pr_body: ''
 releasenote:
-  text: Fixed an issue that could cause duplicate configuration entries to be reported
-    in ResourceClaim status.
+  text: |-
+    Fixed an issue that could cause duplicate configuration entries to be reported in ResourceClaim status.
   sigs:
   - node
   kinds:
   - bug
+  areas: []
+pr_body: ""

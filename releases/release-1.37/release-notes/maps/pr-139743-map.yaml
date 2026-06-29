@@ -1,9 +1,7 @@
 pr: 139743
-pr_body: ''
 releasenote:
-  text: 'ACTION REQUIRED: Renamed the PodGroup condition `PodGroupScheduled` to `PodGroupInitiallyScheduled`
-    to clarify that the condition is set only after a PodGroup is first scheduled
-    successfully and may not reflect the PodGroup''s current scheduling state.'
+  text: |-
+    Renamed the PodGroup condition `PodGroupScheduled` to `PodGroupInitiallyScheduled` to clarify that the condition is set only after a PodGroup is first scheduled successfully and may not reflect the PodGroup's current scheduling state.
   sigs:
   - api-machinery
   - scheduling
@@ -14,3 +12,4 @@ releasenote:
   areas:
   - test
   - code-generation
+pr_body: ""

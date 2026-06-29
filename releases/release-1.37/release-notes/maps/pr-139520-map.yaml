@@ -1,9 +1,7 @@
 pr: 139520
-pr_body: ''
 releasenote:
-  text: 'ACTION REQUIRED: Removed the `GangScheduling` and `WorkloadAwarePreemption`
-    feature gates. Use the `GenericWorkload` feature gate to enable core workload-aware
-    scheduling functionality.'
+  text: |-
+    Removed the `GangScheduling` and `WorkloadAwarePreemption` feature gates. Use the `GenericWorkload` feature gate to enable core workload-aware scheduling functionality.
   sigs:
   - api-machinery
   - node
@@ -15,3 +13,4 @@ releasenote:
   areas:
   - test
   - code-generation
+pr_body: ""

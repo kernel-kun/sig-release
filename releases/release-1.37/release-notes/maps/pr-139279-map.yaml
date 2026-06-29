@@ -1,8 +1,7 @@
 pr: 139279
-pr_body: ''
 releasenote:
-  text: Updated PodGroup and PodGroupTemplate to allow modifying `minCount` after
-    creation. Changes to a PodGroupTemplate do not affect existing PodGroups.
+  text: |-
+    Updated PodGroup and PodGroupTemplate to allow modifying `minCount` after creation. Changes to a PodGroupTemplate do not affect existing PodGroups.
   sigs:
   - api-machinery
   - scheduling
@@ -14,3 +13,4 @@ releasenote:
   - test
   - code-generation
   - api-validation
+pr_body: ""

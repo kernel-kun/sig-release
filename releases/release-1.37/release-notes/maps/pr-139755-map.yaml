@@ -1,9 +1,10 @@
 pr: 139755
-pr_body: ''
 releasenote:
-  text: Added support for waiting for in-progress event handler runs to complete before
-    closing the event handler.
+  text: |-
+    `client-go`: Added support for waiting for in-progress event handler runs to complete before closing the event handler.
   sigs:
   - api-machinery
   kinds:
   - bug
+  areas: []
+pr_body: ""

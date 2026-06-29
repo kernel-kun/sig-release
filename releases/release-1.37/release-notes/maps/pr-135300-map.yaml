@@ -1,13 +1,11 @@
 pr: 135300
-pr_body: ''
 releasenote:
-  text: Updated the `PodReadyToStartContainers` condition to include a diagnostic
-    message when `status` is `False`, explaining why the pod sandbox is not ready.
-    This improves debuggability for Pods stuck in `ContainerCreating` without requiring
-    access to node logs.
+  text: |-
+    Updated the `PodReadyToStartContainers` condition to include a diagnostic message when `status` is False, explaining why the pod sandbox is not ready (for example, `pod sandbox has no IP address` or `no pod sandbox exists`). This improves debuggability for Pods stuck in `ContainerCreating` without requiring access to node logs.
   sigs:
   - node
   kinds:
   - bug
   areas:
   - kubelet
+pr_body: ""

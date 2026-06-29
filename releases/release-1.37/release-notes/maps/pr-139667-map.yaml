@@ -1,12 +1,11 @@
 pr: 139667
-pr_body: ''
 releasenote:
-  text: Improved `kubeadm join` reliability by using the `KubernetesAPICall` timeout
-    (default 1 minute) when fetching the `kubeadm-config` ConfigMap from the cluster,
-    reducing failures caused by transient API server delays.
+  text: |-
+    Improved `kubeadm join` reliability by using the `KubernetesAPICall` timeout (default 1 minute) when fetching the `kubeadm-config` ConfigMap from the cluster, instead of the short 350ms retry previously used for optional component configs. A new `shortConfigMapGet` parameter was added to `FetchInitConfigurationFromCluster` so that callers like `kubeadm reset` can still use the short retry.
   sigs:
   - cluster-lifecycle
   kinds:
   - bug
   areas:
   - kubeadm
+pr_body: ""
